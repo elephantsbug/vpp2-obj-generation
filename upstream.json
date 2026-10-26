@@ -1,0 +1,30 @@
+{
+  "repository": "https://github.com/roboterax/video-prediction-policy-2.git",
+  "commit": "72c17acf022494ff63617be86079bb92e92f5bf8",
+  "checkout": "third_party/vpp2",
+  "geometry_source": "src/vpp2/utils/conditioning.py",
+  "geometry_function": "prepare_image(views, 'robot')",
+  "encoding_reference": "src/vpp2/convert_robodojo.py:render_video",
+  "output_size_wh": [
+    416,
+    240
+  ],
+  "additional_layouts": {
+    "observer_ego": {
+      "geometry_source": "src/vpp2/libero/eval_helpers.py",
+      "geometry_function": "compose_libero_camera_views(preprocess_mode=training_exact)",
+      "view_order": [
+        "observer",
+        "ego"
+      ],
+      "view_size_wh": [
+        224,
+        224
+      ],
+      "output_size_wh": [
+        448,
+        224
+      ]
+    }
+  }
+}

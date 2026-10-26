@@ -1,0 +1,203 @@
+{
+  "status": "passed",
+  "checked_at_utc": "2026-10-19T03:52:01.461240+00:00",
+  "elapsed_seconds": 6.915,
+  "validator": {
+    "path": "/data2/niurc/vpp2-obj-generation/scripts/validate_refreshed_obj_splits.py",
+    "sha256": "eacb4e54385d06aaadee2a2e45546a57e0a23b1e5a0f1b2e20f4b7e36fbb074f"
+  },
+  "counts": {
+    "train": 2155,
+    "test": 240,
+    "excluded": 105,
+    "unique_embeddings_checked": 1382
+  },
+  "partition_and_row_order_preserved": true,
+  "cache_signature": "3714b3f5a88632c47d6ae85ba935f54472b08579c2d1e4c787b304d19921c632",
+  "unique_prompt_token_count_range": [
+    57,
+    120
+  ],
+  "media_leakage": {
+    "rgb_video_hash_overlap": 0,
+    "obj_video_hash_overlap": 0,
+    "any_video_path_overlap": 0
+  },
+  "shared_text_cache_between_splits_is_allowed": true,
+  "shared_text_cache_reason": "Deterministic inference through a frozen pretrained encoder; no fitting on held-out episodes.",
+  "previous_validation_backup": "/data2/niurc/vpp2-obj-generation/data/robotwin_observer_ego_obj_splits_v1/revisions/before_chronological_128_20261019/validation.json",
+  "scope": "All refreshed rows, frozen backups, dedup file hashes, all unique cache tensors, local tokenizer IDs/masks, configuration and artifact hashes.",
+  "limitations": [
+    "No media decoding or video/image rehashing.",
+    "The 11 GB encoder checkpoint was not rehashed or loaded; its generator-recorded SHA is compared with the known official SHA.",
+    "This validates cached tensor integrity and provenance, not an independent rerun of the encoder or a trained model."
+  ],
+  "inputs": {
+    "/data2/niurc/vpp2-obj-generation/data/text_embeddings/prompt_obj_chronological_128_v1_20261019/status.json": {
+      "sha256": "ed2ec426bb606b927d437748465bcd157b5765d95b8bcd74394cc1079d1fb0d5",
+      "size_bytes": 608
+    },
+    "/data2/niurc/vpp2-obj-generation/data/text_embeddings/prompt_obj_chronological_128_v1_20261019/summary.json": {
+      "sha256": "c061dbf86fd46c50d467e89bf0370e97db387651686203ebbc259e1e9f7544df",
+      "size_bytes": 2255
+    },
+    "/data2/niurc/vpp2-obj-generation/data/text_embeddings/prompt_obj_chronological_128_v1_20261019/cache_contract.json": {
+      "sha256": "c4398e4638d80e35cfc47c5d0ad32a6602e22b6c822d2692d408abaf0df813cf",
+      "size_bytes": 2655
+    },
+    "/data2/niurc/vpp2-obj-generation/data/robotwin_observer_ego_obj_splits_v1/revisions/before_chronological_128_20261019/backup_manifest.json": {
+      "sha256": "79374952c2fc4855929329ddeab138ed342facb424b2f3213e5854ef5977ad72",
+      "size_bytes": 1503
+    },
+    "/data2/niurc/vpp2-obj-generation/data/robotwin_observer_ego_obj_splits_v1/revisions/before_chronological_128_20261019/train.jsonl": {
+      "sha256": "6a93e84ce93f8b5cc788285298bcf91dcfee9a75ea608a6e819090a6d17853db",
+      "size_bytes": 5894130
+    },
+    "/data2/niurc/vpp2-obj-generation/data/robotwin_observer_ego_obj_splits_v1/revisions/before_chronological_128_20261019/test.jsonl": {
+      "sha256": "f21e65c0b011acb13dea38c46f49a7a60b2524a2c2ffd9da61a6d5fa882d39f3",
+      "size_bytes": 655217
+    },
+    "/data2/niurc/vpp2-obj-generation/data/robotwin_observer_ego_obj_splits_v1/revisions/before_chronological_128_20261019/excluded_prompt_review.jsonl": {
+      "sha256": "0db9a6a18b0f6d50e60431e5215241c403732e11f48e13ecaf1cbc19637d5c95",
+      "size_bytes": 255548
+    },
+    "/data2/niurc/vpp2-obj-generation/data/robotwin_observer_ego_obj_splits_v1/revisions/before_chronological_128_20261019/summary.json": {
+      "sha256": "4da2f4037e42d8b5344772e4705851f429a81c8378dc2b1121f6e444021ec996",
+      "size_bytes": 9814
+    },
+    "/data2/niurc/vpp2-obj-generation/data/robotwin_observer_ego_obj_splits_v1/revisions/before_chronological_128_20261019/validation.json": {
+      "sha256": "8b06aef8a340232bbfe66e8279732cc500c16f81443895d27a4b0b4ee99ade4f",
+      "size_bytes": 11668
+    },
+    "/data2/niurc/vpp2-obj-generation/data/robotwin_observer_ego_obj_splits_v1/revisions/before_chronological_128_20261019/obj_video_data_contract.json": {
+      "sha256": "0a7491c2b0518eab44d179817f01b2dc943730733ca0c21edd017575b2df5956",
+      "size_bytes": 6087
+    },
+    "/data2/niurc/vpp2-obj-generation/runs/prompt_obj_chronological_128_v1/exports/paired_training.jsonl": {
+      "sha256": "261de11ec6ed1afddffa0e6b07be76789eb18b0fa135b733671203b6072bc0f6",
+      "size_bytes": 6538895
+    },
+    "/data2/niurc/vpp2-obj-generation/data/text_embeddings/prompt_obj_chronological_128_v1_20261019/index.jsonl": {
+      "sha256": "09b84cb6b684da72c3e69185adcdc9f0d3296fe521642f7b6a71143220577a06",
+      "size_bytes": 1335115
+    },
+    "/data2/niurc/vpp2-obj-generation/data/robotwin_observer_ego_obj_splits_v1/train.jsonl": {
+      "sha256": "a1dedb3724db2c4eda84eae3e8dd4eb1c44f10b8eb970ee2f3e9766e0b3cfe67",
+      "size_bytes": 7852845
+    },
+    "/data2/niurc/vpp2-obj-generation/data/robotwin_observer_ego_obj_splits_v1/test.jsonl": {
+      "sha256": "3f539151d265273e99e49038f330459f208c4bbdef3c3a19c5c6a766771b7d5c",
+      "size_bytes": 874365
+    },
+    "/data2/niurc/vpp2-obj-generation/data/robotwin_observer_ego_obj_splits_v1/excluded_prompt_review.jsonl": {
+      "sha256": "0db9a6a18b0f6d50e60431e5215241c403732e11f48e13ecaf1cbc19637d5c95",
+      "size_bytes": 255548
+    },
+    "/data2/niurc/vpp2-obj-generation/third_party/vpp2/src/vpp2/models/wan21_14b/wan_video_text_encoder.py": {
+      "sha256": "902a1e46b21b5c48e166fe03defabb94b3773c6bbe836fc09b9a0d0894eb1f6e",
+      "size_bytes": 11240
+    },
+    "/data2/niurc/vpp2-obj-generation/runs/prompt_obj_chronological_128_v1/prompt_contract.json": {
+      "sha256": "2da12e98eea08be7d8493a3d1305b12d2115129950a728e165c9d12b7e372f20",
+      "size_bytes": 2209
+    },
+    "/data2/niurc/vpp2-obj-generation/data/text_embeddings/prompt_obj_chronological_128_v1_20261019/tokenizer/special_tokens_map.json": {
+      "sha256": "7b8a9f5040adb67b5805abdfd42c1f8d0f3d0e711f10726580eb3789cd0ad61d",
+      "size_bytes": 6623
+    },
+    "/data2/niurc/vpp2-obj-generation/runs/prompt_obj_chronological_128_v1/tokenizer/special_tokens_map.json": {
+      "sha256": "7b8a9f5040adb67b5805abdfd42c1f8d0f3d0e711f10726580eb3789cd0ad61d",
+      "size_bytes": 6623
+    },
+    "/data2/niurc/vpp2-obj-generation/data/text_embeddings/prompt_obj_chronological_128_v1_20261019/tokenizer/spiece.model": {
+      "sha256": "e3909a67b780650b35cf529ac782ad2b6b26e6d1f849d3fbb6a872905f452458",
+      "size_bytes": 4548313
+    },
+    "/data2/niurc/vpp2-obj-generation/runs/prompt_obj_chronological_128_v1/tokenizer/spiece.model": {
+      "sha256": "e3909a67b780650b35cf529ac782ad2b6b26e6d1f849d3fbb6a872905f452458",
+      "size_bytes": 4548313
+    },
+    "/data2/niurc/vpp2-obj-generation/data/text_embeddings/prompt_obj_chronological_128_v1_20261019/tokenizer/tokenizer.json": {
+      "sha256": "6e197b4d3dbd71da14b4eb255f4fa91c9c1f2068b20a2de2472967ca3d22602b",
+      "size_bytes": 16837417
+    },
+    "/data2/niurc/vpp2-obj-generation/runs/prompt_obj_chronological_128_v1/tokenizer/tokenizer.json": {
+      "sha256": "6e197b4d3dbd71da14b4eb255f4fa91c9c1f2068b20a2de2472967ca3d22602b",
+      "size_bytes": 16837417
+    },
+    "/data2/niurc/vpp2-obj-generation/data/text_embeddings/prompt_obj_chronological_128_v1_20261019/tokenizer/tokenizer_config.json": {
+      "sha256": "ed9a3a8b0faa71a70a32847e0435fe036e6e112d4df4edb7bb48a921e344dc05",
+      "size_bytes": 61728
+    },
+    "/data2/niurc/vpp2-obj-generation/runs/prompt_obj_chronological_128_v1/tokenizer/tokenizer_config.json": {
+      "sha256": "ed9a3a8b0faa71a70a32847e0435fe036e6e112d4df4edb7bb48a921e344dc05",
+      "size_bytes": 61728
+    },
+    "/data2/niurc/vpp2-obj-generation/data/robotwin_observer_ego_obj_splits_v1/summary.json": {
+      "sha256": "355904ecee6eda793f11b13bcff98e13ea56aa634a0fc91fc5129cefb15b64dc",
+      "size_bytes": 11093
+    },
+    "/data2/niurc/vpp2-obj-generation/configs/obj_video_data_contract.json": {
+      "sha256": "74798d4c31f41bad1d45f0595944e885d0d7ea9d0aa0c27774e4219ac4cfcc3d",
+      "size_bytes": 9211
+    }
+  },
+  "checks_performed": {
+    "backup_exact_sha256": 7,
+    "unique_record_keys": 8,
+    "excluded_105_bytes_unchanged": 1,
+    "expected_partition_counts": 1,
+    "episode_partitions_disjoint": 1,
+    "new_prompt_exact_episode_coverage": 1,
+    "all_tasks_in_both_splits": 1,
+    "expected_unique_prompt_count": 1,
+    "cache_index_exact_prompt_coverage": 1,
+    "cache_files_exact_coverage": 1,
+    "cache_signature_recomputed": 1,
+    "cache_source_fingerprint": 1,
+    "cache_prompt_set_fingerprint": 1,
+    "encoder_recorded_official_sha256": 1,
+    "encoder_checkpoint_size_only": 1,
+    "encoder_tokenizer_source_fingerprint": 1,
+    "frozen_encoder_metadata": 1,
+    "cache_encoding_contract": 1,
+    "cache_index_fingerprint": 1,
+    "tokenizer_current_sha256": 8,
+    "tokenizer_matches_prompt_contract": 4,
+    "frozen_partition_and_row_order_unchanged": 2,
+    "original_nonprompt_field_unchanged": 47900,
+    "new_prompt_export_field_exact": 57480,
+    "no_flagged_optimization_or_test_row": 2395,
+    "dedup_field_unchanged": 11975,
+    "dedup_current_file_sha256": 2395,
+    "row_cache_path_matches_raw_prompt_sha": 2395,
+    "row_cache_fingerprints_match": 2395,
+    "row_cache_ready_token_metadata": 2395,
+    "excluded_rows_still_flagged": 105,
+    "no_episode_media_leakage": 1,
+    "cache_tensor_file_actual_sha256": 1382,
+    "cache_payload_provenance": 1382,
+    "cache_context_shape_dtype_cpu": 1382,
+    "cache_input_ids_match_tokenizer": 1382,
+    "cache_real_mask_matches_tokenizer": 1382,
+    "no_token_truncation": 1382,
+    "eos_and_right_padding_correct": 1382,
+    "embedding_finite_and_nonzero_valid_context": 1382,
+    "embedding_token_count_and_reuse_count": 1382,
+    "verification_never_initialized_cuda": 1,
+    "cache_summary_counts": 1,
+    "cache_summary_token_counts_recomputed": 1,
+    "summary_artifact_actual_sha256": 3,
+    "summary_frame_totals": 1,
+    "summary_partition_counts_unchanged": 1,
+    "summary_new_prompt_source": 1,
+    "summary_cache_ready": 1,
+    "config_optimization_entry_only_train": 1,
+    "config_held_out_test_entry": 1,
+    "config_prompt_and_cache_identity": 1,
+    "old_prompt_cache_reuse_disabled": 1,
+    "input_unchanged_during_validation": 27
+  },
+  "issues": [],
+  "source_media_or_training_files_modified": false
+}

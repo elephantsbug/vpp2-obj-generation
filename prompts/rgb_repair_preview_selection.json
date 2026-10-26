@@ -1,0 +1,34 @@
+[
+  {
+    "task": "blocks_ranking_rgb",
+    "episode": "episode_0000000"
+  },
+  {
+    "task": "blocks_ranking_rgb",
+    "episode": "episode_0000008"
+  },
+  {
+    "task": "blocks_ranking_rgb",
+    "episode": "episode_0000010"
+  },
+  {
+    "task": "blocks_ranking_rgb",
+    "episode": "episode_0000012"
+  },
+  {
+    "task": "blocks_ranking_rgb",
+    "episode": "episode_0000017"
+  },
+  {
+    "task": "blocks_ranking_rgb",
+    "episode": "episode_0000031"
+  },
+  {
+    "task": "blocks_ranking_rgb",
+    "episode": "episode_0000040"
+  },
+  {
+    "task": "blocks_ranking_rgb",
+    "episode": "episode_0000042"
+  }
+]

@@ -1,0 +1,17 @@
+{
+  "train": 2155,
+  "test": 240,
+  "excluded": 105,
+  "unique_prompts": 1382,
+  "revision": "prompt_obj_chronological_128_v1",
+  "partition_and_order_preserved": true,
+  "commit": true,
+  "completed_at": "2026-10-19T01:49:33.978899+00:00",
+  "backup": "/data2/niurc/vpp2-obj-generation/data/robotwin_observer_ego_obj_splits_v1/revisions/before_chronological_128_20261019",
+  "cache_signature": "3714b3f5a88632c47d6ae85ba935f54472b08579c2d1e4c787b304d19921c632",
+  "artifacts": {
+    "train.jsonl": "a1dedb3724db2c4eda84eae3e8dd4eb1c44f10b8eb970ee2f3e9766e0b3cfe67",
+    "test.jsonl": "3f539151d265273e99e49038f330459f208c4bbdef3c3a19c5c6a766771b7d5c"
+  },
+  "training_started": false
+}

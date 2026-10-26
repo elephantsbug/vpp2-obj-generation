@@ -1,0 +1,8 @@
+# Versions used by the local Qwen2.5-VL-72B preview; existing starvla_env.
+torch==2.8.0+cu128
+torchvision==0.23.0+cu128
+transformers==5.5.0
+accelerate==1.5.2
+safetensors==0.7.0
+tokenizers==0.22.2
+Pillow==12.2.0

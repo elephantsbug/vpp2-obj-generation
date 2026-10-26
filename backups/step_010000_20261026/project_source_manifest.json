@@ -1,0 +1,437 @@
+[
+  {
+    "path": ".gitignore",
+    "bytes": 133,
+    "sha256": "9d5d61ad822103cabc5c67fe8ebee765ac7e947546796a61cd3e3f8ea176e9d6"
+  },
+  {
+    "path": "README.md",
+    "bytes": 26356,
+    "sha256": "2e0bbf89271b773b865df2524a4fc1ffdb2d874c7b115cfd2263e945feed5c15"
+  },
+  {
+    "path": "configs/obj_video_baseline_v1.yaml",
+    "bytes": 3469,
+    "sha256": "dba4456d803b88cbc0c4fe944dca321ec588881b082647698229f29ca8074c84"
+  },
+  {
+    "path": "configs/obj_video_data_contract.before_chronological_prompts.json",
+    "bytes": 5138,
+    "sha256": "86c399e1d1c80d294fe37088ccc78d135eb0a0744ca7c558f4ae0d36954674d3"
+  },
+  {
+    "path": "configs/obj_video_data_contract.json",
+    "bytes": 9211,
+    "sha256": "74798d4c31f41bad1d45f0595944e885d0d7ea9d0aa0c27774e4219ac4cfcc3d"
+  },
+  {
+    "path": "configs/obj_video_smoke_v1.yaml",
+    "bytes": 421,
+    "sha256": "c04b022792d0d4dd08c3eaa0bcf2ee66ced50761bcfab4ffcf51c20073821e36"
+  },
+  {
+    "path": "configs/obj_video_train_v1.yaml",
+    "bytes": 449,
+    "sha256": "2e41e023eb9ab130e85a08593a04110d7e1c427417efe2cfe87ec63d71437ba9"
+  },
+  {
+    "path": "docs/obj_video_baseline_v1.md",
+    "bytes": 8290,
+    "sha256": "3f8e9e73e4cad01913d56f372c4c251c5169dd023a9828111d68d5f4ea63898c"
+  },
+  {
+    "path": "docs/obj_video_data.txt",
+    "bytes": 7868,
+    "sha256": "f882fd64536ffb986d030e202fa878f6de62c37cc178de24d3ffa512d51496cb"
+  },
+  {
+    "path": "env_train.sh",
+    "bytes": 1013,
+    "sha256": "42bcab5d274e056deb659e779738f01ae9a3d51bc9e5d95a79331c9a2a01dce6"
+  },
+  {
+    "path": "prompts/observer_ego_enhance.txt",
+    "bytes": 4916,
+    "sha256": "2d3d141ca8462101dc82540bce2049210dd05a6aad6c6fa9933f78e877b21753"
+  },
+  {
+    "path": "prompts/preview_selection.json",
+    "bytes": 722,
+    "sha256": "560d0db1e9f25757fbaa03aa1ddc455bb73bff52b99668257cda8b2d67ebf09f"
+  },
+  {
+    "path": "prompts/rgb_repair_preview_selection.json",
+    "bytes": 611,
+    "sha256": "bbef960701e8fd46bedebfd4754e44edc319eec77ec38ac845d085c170933dae"
+  },
+  {
+    "path": "prompts/two_step/ground_observer.txt",
+    "bytes": 2121,
+    "sha256": "5e7b1a9457bf1705a29996dfc6351f4831836e2f1cd40772bf176ff338d21214"
+  },
+  {
+    "path": "prompts/two_step/plan_actions.txt",
+    "bytes": 10815,
+    "sha256": "a9dfd816342f7e55ea192694633eb54c5c0e54029bbe5329dec147334872f157"
+  },
+  {
+    "path": "requirements-convert.txt",
+    "bytes": 161,
+    "sha256": "9a47b2732a58e13f871135f3e053401663e0f4a1db08b476bfaacc247c373347"
+  },
+  {
+    "path": "requirements-prompt.txt",
+    "bytes": 211,
+    "sha256": "78abf5cde79d56f058244de2eba0c88462295bcf907c7e3cda168f6d6e3574b5"
+  },
+  {
+    "path": "scripts/build_agent_prompt_bundle.py",
+    "bytes": 11237,
+    "sha256": "5c184d427d6a26e9438759b87474e256a918263924f77f41bce369f7325e885b"
+  },
+  {
+    "path": "scripts/build_droid_pair_review.py",
+    "bytes": 17651,
+    "sha256": "c5aa1fd94386aad4fd4865d9c229b933dee141764e52f92bda486732cdc2e1f0"
+  },
+  {
+    "path": "scripts/build_obj_video_review.py",
+    "bytes": 23222,
+    "sha256": "8b3ca887398845435c70977cad9a44e5d8dbd3b6b7cd3db769f5844be7774641"
+  },
+  {
+    "path": "scripts/build_prompt_review_queue.py",
+    "bytes": 17981,
+    "sha256": "92038854d9c47e46a6e59e1df007ebfc8b30ebc945127ae65b7ab93ddde54fe1"
+  },
+  {
+    "path": "scripts/build_rgb_video_prompt_bundle.py",
+    "bytes": 16747,
+    "sha256": "6d64774dbe0fa54641867bfe404d05a453a9ec880ddead7a894ecaf9d9049e73"
+  },
+  {
+    "path": "scripts/build_timestamp_dedup_index.py",
+    "bytes": 8474,
+    "sha256": "eff2369d19362663af009dfa2f7e3c495f01b3c5edbfe42d3987f2fda820e6d9"
+  },
+  {
+    "path": "scripts/cache_obj_prompt_embeddings.py",
+    "bytes": 21216,
+    "sha256": "8ef55bb558c9eb485ab547561d7ea147c2b1680947dce89c8696fa516eef2178"
+  },
+  {
+    "path": "scripts/check_all_video_prompt_exports.py",
+    "bytes": 6170,
+    "sha256": "ec841704e0daf83bccd2a2752edaed5fc9cbc178d39b78123fba017829b41be8"
+  },
+  {
+    "path": "scripts/check_obj_chronological_prompts.py",
+    "bytes": 7911,
+    "sha256": "c1e2937e7860418d77fec763d7113983024dfa2381f8b477fcf00056f4debafd"
+  },
+  {
+    "path": "scripts/check_obj_full_conversion.py",
+    "bytes": 4675,
+    "sha256": "1b2dfdb1e3a09bd9c5705a40d95243c997f3871c0f5e8db56b9bbc82674bf7c7"
+  },
+  {
+    "path": "scripts/check_obj_video_baseline.py",
+    "bytes": 16206,
+    "sha256": "a562b2fb651a56b6e622ff929a255cbd3ec3761a55e26359f0a0e0a6cf30d85e"
+  },
+  {
+    "path": "scripts/compare_obj_video_checkpoints.py",
+    "bytes": 35650,
+    "sha256": "3210a2f442f9b99b33e5aeb28d9d5d0720bd50f57e6a7fc34f6b81db8df88229"
+  },
+  {
+    "path": "scripts/convert.sh",
+    "bytes": 559,
+    "sha256": "6caa741ec56bf88d339758c41728f5e9732bd5344fe31fb0d89fd16e2d1336cc"
+  },
+  {
+    "path": "scripts/convert_observer.py",
+    "bytes": 16960,
+    "sha256": "9876b4fa29308ee0a33f988e658f78c17c033eb39daf6b1ac00fce38f879f5e6"
+  },
+  {
+    "path": "scripts/convert_observer_ego.py",
+    "bytes": 17303,
+    "sha256": "eb43bb0495460ef5a3f0c31167b725e2baaa04d4a6c3a5bcf00b850e09f46e94"
+  },
+  {
+    "path": "scripts/convert_observer_ego.sh",
+    "bytes": 567,
+    "sha256": "0bd7de93a6d842319404986fe17dc0163969fdf76b773a4ae8c832e263ed7f4c"
+  },
+  {
+    "path": "scripts/convert_observer_ego_obj_full.py",
+    "bytes": 15786,
+    "sha256": "f0bda1ba57e18ccaa13a82c295563bb52d1d678cba6ba975d10e6e1341c4af93"
+  },
+  {
+    "path": "scripts/convert_observer_ego_obj_full.sh",
+    "bytes": 269,
+    "sha256": "6a63527f66bfb9680527a0d95c7434b5161bd83dd88b4777cb7dada95896cd66"
+  },
+  {
+    "path": "scripts/download_stage2_baseline.py",
+    "bytes": 3868,
+    "sha256": "a896dcced9a0c24e6390db7cf76cfe432a0e73df4db9d543221f174adfaaea7d"
+  },
+  {
+    "path": "scripts/enhance_prompts.py",
+    "bytes": 17654,
+    "sha256": "545bd292c031ddac14d51cb16eb08015cfba42d9eaa23be01be9beb9048c79ac"
+  },
+  {
+    "path": "scripts/enhance_prompts.sh",
+    "bytes": 254,
+    "sha256": "8df6844e3212597e884ca4b4a275e85691da6bac886fd83c7735f43610a88665"
+  },
+  {
+    "path": "scripts/enhance_prompts_two_step.py",
+    "bytes": 23716,
+    "sha256": "b3318b68e7a884d19433da363ebf4a4180e60ee616e7a36cec941b2f087d4455"
+  },
+  {
+    "path": "scripts/enhance_prompts_two_step.sh",
+    "bytes": 263,
+    "sha256": "bd5ead77185990072801c67f06696aad771663aa6772e0bd04878af1b71090a9"
+  },
+  {
+    "path": "scripts/enhance_prompts_two_step_batch.py",
+    "bytes": 28045,
+    "sha256": "652ca89867339f87089963058c6b50652480c97a05c7dd05b985843eb69a04c1"
+  },
+  {
+    "path": "scripts/enhance_prompts_two_step_batch.sh",
+    "bytes": 269,
+    "sha256": "f69cd5a717182f7fb08e6d0229d95ec91c0f866b7986c1934c9200de88bdb488"
+  },
+  {
+    "path": "scripts/evaluate_obj_video_full.py",
+    "bytes": 48262,
+    "sha256": "e88c37adb9135c23f6f2a7365c743fe3cc1b6d2f7607a3f855d0a3a030bb19e9"
+  },
+  {
+    "path": "scripts/evaluate_obj_video_full_step_sweep.py",
+    "bytes": 58198,
+    "sha256": "40ce33f3cf8a4d4a81a04930520f3e3c29a5fc886dff9121b428e946c9b43e1a"
+  },
+  {
+    "path": "scripts/evaluate_obj_video_low_step_sweep.py",
+    "bytes": 43851,
+    "sha256": "e25bbc321a7be536deb5fcdf0557b708a1cd8c723313f7939c6c29fc67c9a31c"
+  },
+  {
+    "path": "scripts/evaluate_obj_video_step_sweep.py",
+    "bytes": 45559,
+    "sha256": "9f463c5fb787ae5c5722f6366d30bf3bc93cb8ddf04f957a0a0f004dc6390cac"
+  },
+  {
+    "path": "scripts/export_all_video_agent.py",
+    "bytes": 16427,
+    "sha256": "a31e237c062a25734a8c5a4a08b25ed1c1198b79044c1ae66e4280aa63baddb3"
+  },
+  {
+    "path": "scripts/export_obj_chronological_prompts.py",
+    "bytes": 11592,
+    "sha256": "8b3c670005e82d9452d8eadbc3f15eb7116f1bd749d7e213664bc10d6445c378"
+  },
+  {
+    "path": "scripts/launch_obj_video_full_eval.py",
+    "bytes": 8554,
+    "sha256": "dfb04d542dc1d38949b6c63dda5843b9ac88ed09df5d1b2dc2006ced41584f96"
+  },
+  {
+    "path": "scripts/launch_obj_video_full_step_sweep.py",
+    "bytes": 6626,
+    "sha256": "57a9379cb204f91a1d8f1d4e3a0c7be7320704169f7b87cb573be76dcc4f6103"
+  },
+  {
+    "path": "scripts/obj_chronological_rules.py",
+    "bytes": 15375,
+    "sha256": "978deea015ab0e5bd62379a595a35fc9d8fed52166d011211a3d41f94a730134"
+  },
+  {
+    "path": "scripts/prepare_droid_exterior_pairs.py",
+    "bytes": 15432,
+    "sha256": "0a84574d902192db1fc8fa55f200377cf69209839c771702a79341804b86a086"
+  },
+  {
+    "path": "scripts/prompt_batched_worker.py",
+    "bytes": 18062,
+    "sha256": "765df4ee8f429043bd7946255dcfca3050819b2ffd3ef78c916999061bbe2b82"
+  },
+  {
+    "path": "scripts/prompt_plan.py",
+    "bytes": 33691,
+    "sha256": "62c7fde47746d37842ca2b1e65908caa22b5288af001cec2fc99e94e6e326eb1"
+  },
+  {
+    "path": "scripts/refresh_obj_split_prompts.py",
+    "bytes": 10786,
+    "sha256": "b657908c7b801fdcdc3d055a2f53d2b26bce08c575d5386e53b4baea0f32bdb2"
+  },
+  {
+    "path": "scripts/review_template.html",
+    "bytes": 30254,
+    "sha256": "2553a223ad3de0d16e59f14dd4b4153b689df7b5adf919a08c2054170d9f7ed3"
+  },
+  {
+    "path": "scripts/run_obj_video_eval_shard.py",
+    "bytes": 13681,
+    "sha256": "38033429d7b3954e7a5306fb130bf09552fb85ee374fcaa120a043eb632cf58c"
+  },
+  {
+    "path": "scripts/run_obj_video_full_eval.sh",
+    "bytes": 241,
+    "sha256": "cd0998aef1e14c80d379ec5610bc29b76accaec2422c639c30f0162501835811"
+  },
+  {
+    "path": "scripts/run_obj_video_full_step_shard.py",
+    "bytes": 17063,
+    "sha256": "ddf83562f7ead4ad73d7e33753c7b01aa94462a1d9aee9623c8e3f0dd079da6a"
+  },
+  {
+    "path": "scripts/run_obj_video_low_step_sweep.py",
+    "bytes": 19490,
+    "sha256": "9f7a8ccb44ddde1417fdd716a618cefcdf453b351f35a956a124a67c6a1e7f9e"
+  },
+  {
+    "path": "scripts/run_obj_video_step_sweep.py",
+    "bytes": 18161,
+    "sha256": "a974ed5c8cf876dc8482b0fb40fe14860f01989ce154c88c910da35152c49616"
+  },
+  {
+    "path": "scripts/run_prompt_full.py",
+    "bytes": 12087,
+    "sha256": "fe9c69292222ff23e701ac1c4692e8799809c427dabc84d2b14fdf68a5f63d43"
+  },
+  {
+    "path": "scripts/split_obj_video_dataset.py",
+    "bytes": 10972,
+    "sha256": "40a42a962484c0894bdcd459f853bc81661f3e52a5054559005deb45f2a49db2"
+  },
+  {
+    "path": "scripts/train_obj_video.sh",
+    "bytes": 594,
+    "sha256": "a5a5ff33a68b6b6d52a1afe181eda308e43008c1de01c1934ef695e447108108"
+  },
+  {
+    "path": "scripts/validate_refreshed_obj_splits.py",
+    "bytes": 21103,
+    "sha256": "eacb4e54385d06aaadee2a2e45546a57e0a23b1e5a0f1b2e20f4b7e36fbb074f"
+  },
+  {
+    "path": "src/vpp2_obj/__init__.py",
+    "bytes": 78,
+    "sha256": "ade5087870a666ddb96d67b6e6d09d03d1f2a085e0882b4545bf00c1bc1e0c26"
+  },
+  {
+    "path": "src/vpp2_obj/config.py",
+    "bytes": 8282,
+    "sha256": "203434d91abba2de4d1d0277e84fa0454562e9478ef1d6f61390d72f90e59a9d"
+  },
+  {
+    "path": "src/vpp2_obj/dataset.py",
+    "bytes": 18482,
+    "sha256": "620a914b8c2955cc18f27cf829b5358b0b17229996311f85c640f0a0d3742fc5"
+  },
+  {
+    "path": "src/vpp2_obj/distributed.py",
+    "bytes": 1966,
+    "sha256": "81580c3f36a1ee133f1f39123f8c12c999ded5759f8c524ed6e2c543e38f1249"
+  },
+  {
+    "path": "src/vpp2_obj/infer.py",
+    "bytes": 10394,
+    "sha256": "2d5e2a56c2dce1e40f6dc4115ab2912e33ff8d1a518df0ad35b0d4dfff6b7326"
+  },
+  {
+    "path": "src/vpp2_obj/model.py",
+    "bytes": 11661,
+    "sha256": "59b761c262ee81bfb315821e9bbe385958fe80027087e1c9184fc0b04de292df"
+  },
+  {
+    "path": "src/vpp2_obj/train.py",
+    "bytes": 5809,
+    "sha256": "e4cf55fc23f91f713fbbdeceae1fdaeb783086aa084f2dceb7de02c8bd02d05a"
+  },
+  {
+    "path": "tests/test_convert_observer.py",
+    "bytes": 5876,
+    "sha256": "bc9e4383741dbb9cd57f217b87fc5b23975148129844bd0c570515a2e3759b73"
+  },
+  {
+    "path": "tests/test_convert_observer_ego.py",
+    "bytes": 6214,
+    "sha256": "df01e59c9015ea00935f4101d91093ca1f83d016bd362be0003398b91a5b01d0"
+  },
+  {
+    "path": "tests/test_convert_observer_ego_obj_full.py",
+    "bytes": 6403,
+    "sha256": "d65018d91fecc712c44fcef3ebcea7d23d6d646696ea275022affb39a65c425f"
+  },
+  {
+    "path": "tests/test_enhance_prompts.py",
+    "bytes": 5789,
+    "sha256": "eb9f5ddf2599fd90033af81703f1f1976b43f7646796f23b34cda8771276d3ab"
+  },
+  {
+    "path": "tests/test_obj_video_accumulation.py",
+    "bytes": 11278,
+    "sha256": "35766638783e90412034aa71ad991cef25f6e605432d087fc5c773f9600ddf76"
+  },
+  {
+    "path": "tests/test_obj_video_config.py",
+    "bytes": 3644,
+    "sha256": "fb8890d8d27ec2fcfd29dd2ddc8e9a207b024f8ccf41cb7cffe551a1cb6770e2"
+  },
+  {
+    "path": "tests/test_obj_video_dataset.py",
+    "bytes": 14423,
+    "sha256": "cad3ad38ed01efa1a1068157ef662dc2830b779771f4339b98cb4cf49615d7d2"
+  },
+  {
+    "path": "tests/test_obj_video_inference.py",
+    "bytes": 10916,
+    "sha256": "dd5ff41b0c293dd5543eccc5ef1eabad00211d348fd2bb56d38bd35fba5b4593"
+  },
+  {
+    "path": "tests/test_obj_video_model.py",
+    "bytes": 14797,
+    "sha256": "f9032141cce8a22faefd01291a45c0850e30594d905ee0b611057282492a7b36"
+  },
+  {
+    "path": "tests/test_prompt_batch.py",
+    "bytes": 16529,
+    "sha256": "74504fd03ba7de9e7b2c8485943fa13b59ead051e9bfb83d187baf9c9a5cdca4"
+  },
+  {
+    "path": "tests/test_prompt_batched_worker.py",
+    "bytes": 5832,
+    "sha256": "4ef70776bd12efb4fa07ae669bf1888b2e71406de0ab430ed04402fbaddcc10a"
+  },
+  {
+    "path": "tests/test_prompt_plan.py",
+    "bytes": 27997,
+    "sha256": "a2c79f48f78eb32fe4dfcbcd5c1e577d4711251755b7d204961558d4a3290cb0"
+  },
+  {
+    "path": "tests/test_prompt_supervisor.py",
+    "bytes": 12726,
+    "sha256": "88a681373b985c42f50623df422f4ba4c13ce3bde0afd8c1838c85bd3a676625"
+  },
+  {
+    "path": "tests/test_two_step_images.py",
+    "bytes": 4549,
+    "sha256": "e28c96d0111b66a2d353ee1720e9f5d6e2f0d0f60368c84bd0ea96e151e1199a"
+  },
+  {
+    "path": "upstream.json",
+    "bytes": 786,
+    "sha256": "35f7ec655f3f7fe2b60dfff22a63561979e30a4ebc5a3e9abfb6a015f928856a"
+  }
+]

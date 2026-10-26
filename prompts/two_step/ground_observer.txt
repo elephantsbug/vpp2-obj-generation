@@ -1,0 +1,31 @@
+Locate the task objects in IMAGE 1, the observer view (896 pixels wide by 896 high).
+IMAGE 2 is the robot ego view (448 by 448), showing the same physical objects.
+Use IMAGE 2 ONLY to recognize object identity and appearance. Return locations
+ONLY in IMAGE 1. Never return locations from IMAGE 2.
+Use absolute PIXEL coordinates in the 896x896 observer image: origin at top-left,
+x increases rightward and y downward. Image center is (448,448).
+Return the center of each object's visible shape in observer pixels, NOT a
+normalized coordinate. Do NOT flip coordinates or assign robot arms.
+
+Include the objects to be picked up, tools, contact targets, and destinations.
+For multiple objects of the same type, give distinct IDs and identify each by
+visible attributes. Do not list the robot, grippers, table, or background unless
+one is an explicit task target. A microphone and its head are ONE physical object;
+the head is a grasping part, not a separate object. Likewise, a tool's handle is
+part of that tool. For an object spanning the middle, keep its true center.
+
+Object labels should preserve the task's identifying words where applicable.
+A small grasping part or color detail may be clearer in IMAGE 2. Locate the
+WHOLE corresponding object in IMAGE 1; do not reject the whole tool just because
+its handle/head detail is small. Do not invent objects, positions or attributes.
+If a task object is recognizable only in IMAGE 2 and not locatable in IMAGE 1,
+include it with center=null, confidence="low", and an uncertainty explaining why.
+Confidence is high only when identity and observer location are identifiable.
+Spatial relations and orientations (right of, tips left, head-up) are not objects.
+
+Return only a JSON object with this exact structure, no Markdown:
+{"coordinate_system":"observer_pixels_896x896","objects":[{"id":"o1","label":"object name","center":[448,448],"confidence":"high"}],"uncertainties":[]}
+The center above is an example of the coordinate format, not a suggested location.
+Use confidence "high", "medium", or "low". Uncertainties are short strings.
+
+Task instruction: {task_instruction}

@@ -1,0 +1,168 @@
+Write a grounded, complete robot action plan and two English verb phrases for
+the task. Return ONLY a JSON object conforming to the schema below.
+
+The provided grounding table contains objects identified from the initial
+observer/ego images, with positions measured ONLY in the observer view.
+This step receives text, not another camera image. Do not relabel or relocate
+the grounded objects. Their IDs consistently identify whole physical objects.
+
+COMPLETE EVERY REQUESTED OBJECT
+Build the plan object by object BEFORE combining actions into the two arm
+clauses. Two arms do NOT mean only two objects or two actions. A single arm may
+grasp and place several objects one after another. assignment.object_id is only
+an initial anchor; it NEVER limits the objects in that arm's actions array.
+Repeated arm names in the task refer to repeated actions by the SAME arm, not
+additional arms: an arm list of "left, left, right" assigns the first two
+listed objects to the left arm and the third to the right arm.
+For EVERY object the task asks to manipulate, include its actual operation in
+an owning arm's actions using object_id, AND state that operation with the object
+name in that arm's verb_phrase. Merely mentioning an object in requirements,
+as a destination/reference, or in a final color list does NOT operate on it.
+Do not omit an object to shorten a phrase or to make the two clauses symmetric.
+
+Preserve final object relationships separately from chronological action order.
+If the task specifies a colored left-to-right row, keep each requested object's
+position in that row. Do not place every block "on the left", reverse the color
+order, or mistake the order of narrated arms for the order of final objects.
+Do not add left-to-right spatial ordering if the task only asks for a temporal
+sequence and a row. Explicit task directions take priority over observer mirroring.
+When the task requires an action order across arms, include explicit dependencies
+in the English phrases, such as "after the first block is placed, ..." and
+"then, after the second block is placed, ..." with the actual object names.
+The required ", while" connector does NOT make sequential operations simultaneous.
+
+ARM ASSIGNMENT
+"left" and "right" always mean the robot's actual arms. In the observer view,
+image-left is actual RIGHT; image-right is actual LEFT. The program has already
+added observer_side and preferred_arm to each object. Do not invert this mapping.
+- An explicit left/right arm in the task takes priority over proximity.
+- Apply an explicit arm instruction to EACH associated object, including later
+  objects manipulated by the same arm; do not stop after its first object.
+- Otherwise, assign each grasped object or tool using its preferred_arm.
+  Use the held tool's position, not the position of the object it will strike.
+- If both arms are explicitly required to hold ONE shared object, use mode "both".
+- When different arms must act on different objects at the same time, use each
+  object's preferred_arm. If both would use one arm or a needed preference is
+  null, record uncertainty. A single arm may otherwise manipulate multiple
+  objects sequentially. assignment.object_id is its initial/main target anchor;
+  actions may refer to other objects as required by the task.
+- For handover, the giving arm initially picks up the object. Assign the giver
+  by explicit task instruction or object proximity. The other arm is the receiver.
+- The arm holding a tool performs the operation with that tool. If one arm holds
+  a target and the other holds a scanner/brush/hammer, only the TOOL-HOLDING arm
+  scans/brushes/strikes the target. The target-holding arm just holds the target.
+  Keep this tool ownership consistent in both actions and verb_phrase. Do not
+  transfer tools between arms unless the task explicitly requires a handover.
+
+NO EXTRA ACTIONS
+An arm participates only if the task requires its actions. Do not add a helper
+arm to hold a target, stabilize an object, or assist a single-arm manipulation.
+Use active=false, assignment.mode="inactive", actions=[], verb_phrase="keeps static"
+when an arm is not needed at ANY stage of the entire task.
+Receiving, holding, and placing after a handover are ACTIVE actions. Both giver
+and receiver are active. Do not confuse a stationary initial pose with inactivity.
+
+RETAIN THE TASK
+Preserve the tool, exact grasping part, operation, target, destination, temporal
+order, simultaneous actions, and final orientation/state requested by the task.
+"Pick up", "lift", and "elevate" require lifting the object, not merely grasping it.
+When the task specifies grip/handle/head AS A GRASP LOCATION, grasp that part.
+Appearance/orientation words such as "head-up" do NOT specify a grasp location.
+Use object_id for
+the WHOLE object and grasp_part for its part. Transfer the whole microphone, not
+a detached microphone head. The receiving arm must finish receiving and holding
+the object, not merely open or approach in preparation.
+Do not add final arrangements, extra relative positions, later actions, or camera
+motion that the task does not request. Action kind "transfer" means ONLY a
+handover to the other robot arm. Transferring bread to a basket is move/place.
+Pressing, tapping, switching, and opening can use kind "use" or "other" directly;
+do not invent picking up the entire button, appliance or target first.
+Task-specified directions such as "right of",
+"left", and "forward" remain unchanged. Do not invent a coordinate frame for them.
+
+ENGLISH VERB PHRASES
+For each active arm, verb_phrase contains all of that arm's actions in order,
+starting with a third-person singular verb such as "grasps" or "receives".
+Use readable object names in verb_phrase, NEVER internal identifiers such as
+"o1" or "o2". IDs belong only in the structured object_id/tool_id fields.
+Do not include the subject, a final period, the other arm's actions, a view
+description, or the ", while" connector. Mentioning another arm as source or
+recipient is allowed. Do not invent a new action just to lengthen a phrase.
+If the right arm receives from the left, its phrase starts with receiving and
+continues with its later actions; the left phrase says it first grasps and then
+passes the object. This preserves event order despite narrating right first.
+If the task says "together" or "simultaneously", verb phrases must explicitly
+retain "together", "simultaneously", or "at the same time". "while" alone is insufficient.
+Attach the simultaneous wording to the exact action requested together: for
+"pick up together", write "simultaneously grasps and lifts ..." in each arm's
+phrase. Marking only a later movement or placement as simultaneous is insufficient.
+For two SEPARATE objects, each arm handles its OWN object: write "simultaneously
+lifts X" and "lifts Y at the same time", or the analogous placement actions.
+For visually similar objects such as two shoes, say "one shoe" and "the other
+shoe" so the two phrases clearly refer to separate objects without inventing
+an appearance difference.
+Do not say "lifts X together with the other arm", which can imply both arms
+grasp the same object. Reserve such shared-object wording for one shared object.
+
+REQUIREMENTS AND EVIDENCE
+List the task's grasp parts, destinations, and required final states/orientations.
+grasp_parts is [] unless a body part of an object/tool is specified for contact.
+The whole object name is NOT a grasp part. Destinations/final_states may be empty.
+Another robot arm is a handover participant, not a destination entity: express
+that relationship in transfer/receive actions, not the destinations list.
+Each evidence string must be an EXACT substring of the task instruction.
+For destinations and final states, make text an exact short task phrase and
+preserve that same phrase verbatim in at least one English verb_phrase.
+For example an instruction containing "face the robot" requires text "face the robot"
+and a verb phrase such as "... aligns it to face the robot".
+Do not invent an explicit final state if none is requested; an empty list is OK.
+Use assignment.mode="explicit" only with evidence quoting the task's specified arm.
+Use "both" only with evidence quoting a requirement for both arms on one object.
+Use "proximity" with empty evidence for an otherwise unspecified grasping arm.
+Use "receiver" with evidence quoting the transfer request for the receiving arm.
+For sequential timing implied by a sentence, quote that sentence as evidence;
+do not invent a word such as "then" in evidence if it is absent from the task.
+If simultaneous grasping is followed by scanning or another later action, keep
+both the simultaneity and the later event order in the actions and verb phrases.
+Non-entity destinations such as "further away" need no destination_id; use null
+and preserve the relationship in requirements and verb_phrase.
+
+SCHEMA
+{
+  "requirements": {
+    "grasp_parts": [{"text":"grip/handle/head if requested", "evidence":"exact task quote"}],
+    "destinations": [{"text":"exact task phrase", "evidence":"exact task quote"}],
+    "final_states": [{"text":"exact task phrase", "evidence":"exact task quote"}],
+    "timing": {"kind":"simultaneous|sequential|unspecified", "evidence":"exact task quote or empty"}
+  },
+  "arms": {
+    "right": {
+      "active": true,
+      "assignment": {"mode":"explicit|proximity|both|receiver|inactive", "object_id":"o1 or null", "evidence":"exact task quote or empty"},
+      "actions": [{"kind":"grasp|lift|move|place|orient|use|hold|support|transfer|receive|other", "object_id":"o1", "grasp_part":null, "tool_id":null, "destination_id":null, "other_arm":null}],
+      "verb_phrase":"all actions performed by the actual right arm"
+    },
+    "left": {
+      "active": false,
+      "assignment": {"mode":"inactive", "object_id":null, "evidence":""},
+      "actions": [],
+      "verb_phrase":"keeps static"
+    }
+  },
+  "uncertainties": []
+}
+Use JSON null, not the string "null". Replace illustrative schema values with
+the actual plan. Lists may be empty. Both arms can be active, or either can be
+inactive. Never copy the example's activity pattern without checking the task.
+Each action must describe its owning arm. other_arm is null except a transfer
+or receive action, where it is the other actual arm. All object/tool/destination
+IDs must be present in the grounding table. Keep actions minimal and faithful.
+Before returning JSON, compare all task manipulation targets with actions[].object_id
+and verb_phrase. Every requested target must have its action and completed result;
+an object listed only in a summary is still missing. If evidence is uncertain,
+report it without deleting requested objects from the plan.
+
+Observer grounding and program-computed arm preferences:
+{grounding_json}
+
+Task instruction: {task_instruction}

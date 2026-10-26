@@ -1,0 +1,14 @@
+__pycache__/
+.pytest_cache/
+*.pyc
+/.venv*/
+/.cache/
+/data/
+/runs/
+/weights/
+/third_party/vpp2/
+.env
+.env.*
+!.env.example
+*.pem
+*.key

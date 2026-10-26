@@ -1,0 +1,98 @@
+[
+  {
+    "source": "runs/obj_video_train_v1/config.yaml",
+    "backup": "backups/step_010000_20261026/metadata/runs/obj_video_train_v1/config.yaml",
+    "bytes": 3414,
+    "sha256": "f64760aa3cb4bc94e5005a344ce005100f25b0e6ab17285423f40a24542de049"
+  },
+  {
+    "source": "runs/obj_video_train_v1/train.log",
+    "backup": "backups/step_010000_20261026/metadata/runs/obj_video_train_v1/train.log",
+    "bytes": 2287215,
+    "sha256": "a7ddc960a4d6929d30cd6f16d946af29431e5589713f1187647c1383b5a3436b"
+  },
+  {
+    "source": "runs/baseline_setup_20261015/baseline_inventory.json",
+    "backup": "backups/step_010000_20261026/metadata/runs/baseline_setup_20261015/baseline_inventory.json",
+    "bytes": 3807,
+    "sha256": "446e22f305d9674b93cff39d9492b6f5dc10fea61f0ef3448ca628b516e2feba"
+  },
+  {
+    "source": "runs/baseline_setup_20261015/environment_audit.json",
+    "backup": "backups/step_010000_20261026/metadata/runs/baseline_setup_20261015/environment_audit.json",
+    "bytes": 6591,
+    "sha256": "ac9c81ac2ea333bb656e9cb28755b8aa3623cd0ec0fe4cffaaac685fef9919cf"
+  },
+  {
+    "source": "runs/baseline_setup_20261015/shared_weights_verified.json",
+    "backup": "backups/step_010000_20261026/metadata/runs/baseline_setup_20261015/shared_weights_verified.json",
+    "bytes": 8486,
+    "sha256": "56c6a7f661ccbda7cceeb545de14da3f0f21770baea415549d71a649ddfe66e1"
+  },
+  {
+    "source": "runs/baseline_setup_20261015/environment_freeze.txt",
+    "backup": "backups/step_010000_20261026/metadata/runs/baseline_setup_20261015/environment_freeze.txt",
+    "bytes": 1875,
+    "sha256": "fcfc315ecd47f5f5113547bbbbc222c59e0bb2523dd7a6bad849094dea30b1ee"
+  },
+  {
+    "source": "data/robotwin_observer_ego_obj_splits_v1/train.jsonl",
+    "backup": "backups/step_010000_20261026/metadata/data/robotwin_observer_ego_obj_splits_v1/train.jsonl",
+    "bytes": 7852845,
+    "sha256": "a1dedb3724db2c4eda84eae3e8dd4eb1c44f10b8eb970ee2f3e9766e0b3cfe67"
+  },
+  {
+    "source": "data/robotwin_observer_ego_obj_splits_v1/test.jsonl",
+    "backup": "backups/step_010000_20261026/metadata/data/robotwin_observer_ego_obj_splits_v1/test.jsonl",
+    "bytes": 874365,
+    "sha256": "3f539151d265273e99e49038f330459f208c4bbdef3c3a19c5c6a766771b7d5c"
+  },
+  {
+    "source": "data/robotwin_observer_ego_obj_splits_v1/summary.json",
+    "backup": "backups/step_010000_20261026/metadata/data/robotwin_observer_ego_obj_splits_v1/summary.json",
+    "bytes": 11093,
+    "sha256": "355904ecee6eda793f11b13bcff98e13ea56aa634a0fc91fc5129cefb15b64dc"
+  },
+  {
+    "source": "data/robotwin_observer_ego_obj_splits_v1/validation.json",
+    "backup": "backups/step_010000_20261026/metadata/data/robotwin_observer_ego_obj_splits_v1/validation.json",
+    "bytes": 10297,
+    "sha256": "6b66f18070e0b43b5ebc98e1067c53e87aa08e8d87ce75146ea33ad1db145f13"
+  },
+  {
+    "source": "data/robotwin_observer_ego_obj_splits_v1/excluded_prompt_review.jsonl",
+    "backup": "backups/step_010000_20261026/metadata/data/robotwin_observer_ego_obj_splits_v1/excluded_prompt_review.jsonl",
+    "bytes": 255548,
+    "sha256": "0db9a6a18b0f6d50e60431e5215241c403732e11f48e13ecaf1cbc19637d5c95"
+  },
+  {
+    "source": "data/robotwin_observer_ego_obj_splits_v1/prompt_refresh_20261019.json",
+    "backup": "backups/step_010000_20261026/metadata/data/robotwin_observer_ego_obj_splits_v1/prompt_refresh_20261019.json",
+    "bytes": 687,
+    "sha256": "68bd621e2dcc01393fdc76d8c993cdd7856838cd967494313c7dbf5f4b491293"
+  },
+  {
+    "source": "data/text_embeddings/prompt_obj_chronological_128_v1_20261019/summary.json",
+    "backup": "backups/step_010000_20261026/metadata/data/text_embeddings/prompt_obj_chronological_128_v1_20261019/summary.json",
+    "bytes": 2255,
+    "sha256": "c061dbf86fd46c50d467e89bf0370e97db387651686203ebbc259e1e9f7544df"
+  },
+  {
+    "source": "weights/config.json",
+    "backup": "backups/step_010000_20261026/metadata/weights/config.json",
+    "bytes": 2214,
+    "sha256": "f853b7b139bc846909bc53f5cce3b7c2741b3807b75f3b2cd7bce5837f27d5a6"
+  },
+  {
+    "source": "weights/checkpoints/Wan2.1-I2V-14B-480P/config.json",
+    "backup": "backups/step_010000_20261026/metadata/weights/checkpoints/Wan2.1-I2V-14B-480P/config.json",
+    "bytes": 250,
+    "sha256": "b715e6ed094566c73a05e99129105683ff4362af6a783a17dc0dd32884a5d4a7"
+  },
+  {
+    "source": "runs/baseline_setup_20261015/release_support_verified.json",
+    "backup": "backups/step_010000_20261026/metadata/runs/baseline_setup_20261015/release_support_verified.json",
+    "bytes": 1151,
+    "sha256": "f032535bda7fec5d533c5b657b8ef8b9d8a2263f35ee62e6a28484143af0cc11"
+  }
+]

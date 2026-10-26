@@ -1,0 +1,1132 @@
+[
+  {
+    "path": ".gitattributes",
+    "bytes": 75,
+    "sha256": "159a8526d1d444188d6f7cd17bfea5f123ddf4f7df25466a6bad726f207eb51f"
+  },
+  {
+    "path": ".gitignore",
+    "bytes": 317,
+    "sha256": "9d68a4792318ced78f0078224004b02048d96c08b93f97e09d9e06e237a0f2f8"
+  },
+  {
+    "path": "CITATION.bib",
+    "bytes": 587,
+    "sha256": "24eedf14daa2f5df4559e485c860aa8ed6335e51d3c09edb7eb8fb66587c9b08"
+  },
+  {
+    "path": "LICENSE",
+    "bytes": 1210,
+    "sha256": "8379dddfbbb1154ad9cc57f008f1f8d4a8d26c3de99bd6b36aa4d8067888aa92"
+  },
+  {
+    "path": "README.md",
+    "bytes": 9010,
+    "sha256": "9fea091a671cb3b71a4abe76f9a03f8f95047195b3d143d8dcb08fc7267318a7"
+  },
+  {
+    "path": "THIRD_PARTY_NOTICES.md",
+    "bytes": 2034,
+    "sha256": "2cff1990fe025b3ef1fcec817ee4e5780a1d3d54e698dbf3bf83ebbc988047d4"
+  },
+  {
+    "path": "assets/badges/README.md",
+    "bytes": 681,
+    "sha256": "a0112d47e0e3dbd50508d3a3393b9ba61dcceac63c2437fe67053b8ab955dad6"
+  },
+  {
+    "path": "assets/badges/arxiv.svg",
+    "bytes": 1689,
+    "sha256": "3fca34fd91c6681ce8b618d9849adf742d1a01ca22d14d814ec2997a2686e271"
+  },
+  {
+    "path": "assets/badges/huggingface.svg",
+    "bytes": 3637,
+    "sha256": "4b9521818031cdba6895972cc7c48abd4f60b68d3b1e3b6ac17f1009e060b386"
+  },
+  {
+    "path": "assets/badges/modelscope.svg",
+    "bytes": 1010,
+    "sha256": "c4d083c8ce1d057187254fd8847692a308989c398c6c2121ecbe1079a6a87689"
+  },
+  {
+    "path": "assets/badges/project-page.svg",
+    "bytes": 850,
+    "sha256": "a7dfab5b697654202dbb03904fb56aa6d115cf80e14c7e10a0510bbf6620a996"
+  },
+  {
+    "path": "assets/random_samples/aloha/aloha_0.png",
+    "bytes": 77836,
+    "sha256": "58dcb55380a995aa9396c1426da0dd745399b796b394e53e626e4ebf61365b9b"
+  },
+  {
+    "path": "assets/random_samples/aloha/aloha_1.png",
+    "bytes": 123103,
+    "sha256": "09f4820619b6802a6a13b5aff2708951057361e9c5b53dea636abfa29dc0292f"
+  },
+  {
+    "path": "assets/random_samples/aloha/aloha_10.png",
+    "bytes": 100892,
+    "sha256": "5d4c240529f19711e7e0021a8b2526588660d5860d67d57da833c565ebd42d42"
+  },
+  {
+    "path": "assets/random_samples/aloha/aloha_11.png",
+    "bytes": 92178,
+    "sha256": "13fa4bb93d64218d4a4e4d7d126aa9fa5f5e733e083c54a4b15c0a3d6703b2e8"
+  },
+  {
+    "path": "assets/random_samples/aloha/aloha_12.png",
+    "bytes": 90157,
+    "sha256": "a0b17d6dbc816ba4852733564666309435a9f3b533650ce3829cb3b5b0d11f61"
+  },
+  {
+    "path": "assets/random_samples/aloha/aloha_13.png",
+    "bytes": 72364,
+    "sha256": "cf6d8dbb837ef90184f87494a13778983d9e706abc03ebce9f441c68b78dab32"
+  },
+  {
+    "path": "assets/random_samples/aloha/aloha_14.png",
+    "bytes": 126302,
+    "sha256": "85776fcd4db8d682845bed716164512306270c4473aa0f353944145e9dd62984"
+  },
+  {
+    "path": "assets/random_samples/aloha/aloha_15.png",
+    "bytes": 86438,
+    "sha256": "e81d1eda75e09d5dee95e68e7584426ab486c0949ac858dec3dc32bf52f6e065"
+  },
+  {
+    "path": "assets/random_samples/aloha/aloha_16.png",
+    "bytes": 86659,
+    "sha256": "5ee5255b7c92c9a4d5b5f4d80cb8a77ad58df41cd832ecfa80c2947ced3b5de9"
+  },
+  {
+    "path": "assets/random_samples/aloha/aloha_17.png",
+    "bytes": 87392,
+    "sha256": "04369e2943f9df82f03ad7ea1b3385eb5a22bd2c9dfc950a3767a58dac3b6713"
+  },
+  {
+    "path": "assets/random_samples/aloha/aloha_18.png",
+    "bytes": 93103,
+    "sha256": "61cf579ef352f52af7fb1eebc99599b4e74c92a4e6f20a5aea3c38535b00ebab"
+  },
+  {
+    "path": "assets/random_samples/aloha/aloha_19.png",
+    "bytes": 95468,
+    "sha256": "caea1844b3a58732690c743c32ba7134f6f9dc3a63d13340c5220b40a8159cf1"
+  },
+  {
+    "path": "assets/random_samples/aloha/aloha_2.png",
+    "bytes": 104547,
+    "sha256": "1cb0822910b8ddde1e1b9904f0ccee9888032b2aad29f8904b04eaf13c8e1cf8"
+  },
+  {
+    "path": "assets/random_samples/aloha/aloha_3.png",
+    "bytes": 90176,
+    "sha256": "6f06a4bd2df1d64271ab0fd47a9a6a99727b116f156cfd4cf06c4e32b80af992"
+  },
+  {
+    "path": "assets/random_samples/aloha/aloha_4.png",
+    "bytes": 105126,
+    "sha256": "6dbc9a69fbba8396c0906cbc63395ecd7cd4ac9ed1211fe8bbf7a527e919b3ff"
+  },
+  {
+    "path": "assets/random_samples/aloha/aloha_5.png",
+    "bytes": 86319,
+    "sha256": "978744cc5fd0087b7dfbdb68147011cb07d9404e6828c61bae0d34afac8cc84d"
+  },
+  {
+    "path": "assets/random_samples/aloha/aloha_6.png",
+    "bytes": 123033,
+    "sha256": "e2dcdac1903d631a4e2db1529ce42520f1f3fdec2af88ad4cdbbd3e5893d3aa7"
+  },
+  {
+    "path": "assets/random_samples/aloha/aloha_7.png",
+    "bytes": 105592,
+    "sha256": "48fcd05d419ee3faf554b89455eb4366e98855dfc0ac68db11c21612e455b4c5"
+  },
+  {
+    "path": "assets/random_samples/aloha/aloha_8.png",
+    "bytes": 84800,
+    "sha256": "235be493cf8c1a796541896c97206e76d5e7917cb35049c45b869fddc88bf024"
+  },
+  {
+    "path": "assets/random_samples/aloha/aloha_9.png",
+    "bytes": 75908,
+    "sha256": "89d061fab443664e0346c114da7ebafb89200258e4eadb43ec90f15bb291b42b"
+  },
+  {
+    "path": "assets/random_samples/human_hand/hand_0.png",
+    "bytes": 120950,
+    "sha256": "890e84898bde465939204cf58fe8e57a5a30f4a0fa8f62d3366d584d23c388e4"
+  },
+  {
+    "path": "assets/random_samples/human_hand/hand_1.png",
+    "bytes": 79417,
+    "sha256": "47668574ed339c985ff3c81315a2b7ba727dc7434a8f872196df60b93a1e7e21"
+  },
+  {
+    "path": "assets/random_samples/human_hand/hand_10.png",
+    "bytes": 100300,
+    "sha256": "8b0e685463e43b5b1c125f21197da7f7b5bc53346b8b608a74617ccdc8fc2619"
+  },
+  {
+    "path": "assets/random_samples/human_hand/hand_11.png",
+    "bytes": 127527,
+    "sha256": "352eb5f53e726f8c105d081dbb3ae85217ce6d0fa9f30ed8e70995be1b9196f2"
+  },
+  {
+    "path": "assets/random_samples/human_hand/hand_12.png",
+    "bytes": 133200,
+    "sha256": "48006bbf6cad77142d3e87a486004da8dbf326816814ce9fc409c09e3ade9cca"
+  },
+  {
+    "path": "assets/random_samples/human_hand/hand_13.png",
+    "bytes": 56463,
+    "sha256": "2da1c0f75a6a2499f7518dd18116c8cf520626519b13ee2b46c077edbf5c03ae"
+  },
+  {
+    "path": "assets/random_samples/human_hand/hand_14.png",
+    "bytes": 122292,
+    "sha256": "4ed6fb4f676275006a0df8bb5ab7544c5430df0c9acd801fbab30f495c68c3bb"
+  },
+  {
+    "path": "assets/random_samples/human_hand/hand_15.png",
+    "bytes": 110777,
+    "sha256": "575692ba01d20ba413b02a792c9bbf70dc9359d8162649451d630c5a10607dfc"
+  },
+  {
+    "path": "assets/random_samples/human_hand/hand_16.png",
+    "bytes": 115504,
+    "sha256": "0e93d4143f3bbcebd0bd12c912393556149665aa872d10f82bcbaa51a4f9ab72"
+  },
+  {
+    "path": "assets/random_samples/human_hand/hand_17.png",
+    "bytes": 111204,
+    "sha256": "3e5ce3fdf8f4ea5eb574e7c98cbfb251f41fcd809c17617a09177f9e792270f3"
+  },
+  {
+    "path": "assets/random_samples/human_hand/hand_18.png",
+    "bytes": 110577,
+    "sha256": "488569e0f07db94b2f6767fc1058406de3f25e8fa1590bbd847135668dfec709"
+  },
+  {
+    "path": "assets/random_samples/human_hand/hand_19.png",
+    "bytes": 133353,
+    "sha256": "dd7a619a9c0c35c60adb140cf62437585e26ad3f7f734004bed519f26a18a918"
+  },
+  {
+    "path": "assets/random_samples/human_hand/hand_2.png",
+    "bytes": 131432,
+    "sha256": "f8e4043785901306859bac9810c48e49afcc187fc48ea669307883c2065aefa1"
+  },
+  {
+    "path": "assets/random_samples/human_hand/hand_3.png",
+    "bytes": 139866,
+    "sha256": "53254d33fc1a32f56ce60a651a6c6e41656d804ebcc596f06f6a7180c32f5d8f"
+  },
+  {
+    "path": "assets/random_samples/human_hand/hand_4.png",
+    "bytes": 120503,
+    "sha256": "4fd68e647ba70267826bb2ac95a0c4ec24fb82f42a5d80dd9435c903f867d065"
+  },
+  {
+    "path": "assets/random_samples/human_hand/hand_5.png",
+    "bytes": 113062,
+    "sha256": "e87c7196ac484af9eea30086311417b8e398aa7b232a3c2305889a9daa280bf3"
+  },
+  {
+    "path": "assets/random_samples/human_hand/hand_6.png",
+    "bytes": 128390,
+    "sha256": "3decaff22d1eb74a5623075a5eac9593e5eae19903af9a5fd94c9198b2cd6971"
+  },
+  {
+    "path": "assets/random_samples/human_hand/hand_7.png",
+    "bytes": 91293,
+    "sha256": "7bad28cd2bf5e1ad29c8866f24e7e897e25e56d07e418a30f763a19b31fa5f78"
+  },
+  {
+    "path": "assets/random_samples/human_hand/hand_8.png",
+    "bytes": 62166,
+    "sha256": "fb7a8ceb55d83369c7a388f1a7816ae8d10c94e9ec335430c639cc3150e5f897"
+  },
+  {
+    "path": "assets/random_samples/human_hand/hand_9.png",
+    "bytes": 169012,
+    "sha256": "ea63d18d81c61ccff1f02051f2fb99b18146d3ea264bb9daaab796f5263eebf9"
+  },
+  {
+    "path": "assets/random_samples/panda/panda_0.png",
+    "bytes": 102385,
+    "sha256": "fb15a992b3152ac53ebb53793bfdb2483e05cdbb54b5f5783b809c1e7ec988cf"
+  },
+  {
+    "path": "assets/random_samples/panda/panda_1.png",
+    "bytes": 82300,
+    "sha256": "b3d60fbfa4d91732a9ced00ff352fb91b709bca7086de9137beb5a9ceb7d61cb"
+  },
+  {
+    "path": "assets/random_samples/panda/panda_10.png",
+    "bytes": 83620,
+    "sha256": "76cea56e269176fc01765e26a4b7b9c8047d4d7456f3d0292aec78a9a9936566"
+  },
+  {
+    "path": "assets/random_samples/panda/panda_11.png",
+    "bytes": 85350,
+    "sha256": "43e0cc6d452a89927389bb75dd2e0bacbcfe40ead9b34b5a7e7fe533ddfcedd7"
+  },
+  {
+    "path": "assets/random_samples/panda/panda_12.png",
+    "bytes": 101834,
+    "sha256": "410ea13e7c67ac434c5cc677d38c9d87867cb95d0cfe48c9ab461f7614c03be2"
+  },
+  {
+    "path": "assets/random_samples/panda/panda_13.png",
+    "bytes": 80362,
+    "sha256": "c8e5e1d092768fc0739a4f3bb6985b14fd61b48627c7183a1693ba860e6b9be5"
+  },
+  {
+    "path": "assets/random_samples/panda/panda_14.png",
+    "bytes": 96603,
+    "sha256": "f669599bd9c84bb777dc8808fdf690d13a970d54874b6363ffd5a70344230ed0"
+  },
+  {
+    "path": "assets/random_samples/panda/panda_15.png",
+    "bytes": 103337,
+    "sha256": "71d38398d771c3b295271fb0b49301f800383e509bbd3134409e3dce766da122"
+  },
+  {
+    "path": "assets/random_samples/panda/panda_16.png",
+    "bytes": 90217,
+    "sha256": "a3bf1044683c4f3a15fc83528a8737c15603d2f0d35595272b7d173cb2db17d5"
+  },
+  {
+    "path": "assets/random_samples/panda/panda_17.png",
+    "bytes": 86648,
+    "sha256": "660d43f7289749b34b52cc46199a27ce28e5ea5d61ca058a15823dceb92f4295"
+  },
+  {
+    "path": "assets/random_samples/panda/panda_18.png",
+    "bytes": 94725,
+    "sha256": "e3637264e925dc11a73ae4cf5b8717b1a093219f286ddf6ad2d95e0c6f514bc9"
+  },
+  {
+    "path": "assets/random_samples/panda/panda_19.png",
+    "bytes": 89434,
+    "sha256": "1c7fb752bc14072a403bdbe4c1fed16cb0ad00d3afb04067282ddacb6487bd91"
+  },
+  {
+    "path": "assets/random_samples/panda/panda_2.png",
+    "bytes": 91554,
+    "sha256": "b3b6d50281ff64e69659e3faed9a41136059cc2a8b46d1009737a6e17a942375"
+  },
+  {
+    "path": "assets/random_samples/panda/panda_3.png",
+    "bytes": 87421,
+    "sha256": "49c518bdf48a7902a590ae7e4894b790e56345ef3fefb4c2ad6992cba64633d9"
+  },
+  {
+    "path": "assets/random_samples/panda/panda_4.png",
+    "bytes": 89119,
+    "sha256": "244a27f057cf893de9376ea04615e0dccf4347b9e5d5aaea122acf57500ec4d5"
+  },
+  {
+    "path": "assets/random_samples/panda/panda_5.png",
+    "bytes": 104765,
+    "sha256": "8e972ad847652f1e4dcfbf98432184d2cc35b4856b763a859a969e9213719239"
+  },
+  {
+    "path": "assets/random_samples/panda/panda_6.png",
+    "bytes": 85870,
+    "sha256": "a173bf5451e4e47e730a7f157512571c5d7c6f4a4b1cc616e63aebbe77269e52"
+  },
+  {
+    "path": "assets/random_samples/panda/panda_7.png",
+    "bytes": 90617,
+    "sha256": "276374c51f983a728977aff518b93fb3857be6a7b9d08dd6a027e9f34e94fd86"
+  },
+  {
+    "path": "assets/random_samples/panda/panda_8.png",
+    "bytes": 106922,
+    "sha256": "42ad2c57965ab0ab3c1b9158e5d76669ca53d9386f880779ab07740bb637f0e2"
+  },
+  {
+    "path": "assets/random_samples/panda/panda_9.png",
+    "bytes": 93802,
+    "sha256": "f91c2d9eca69921823f21e9e060dda9f72f68416ae81a3cb470c83187f4e631d"
+  },
+  {
+    "path": "assets/random_samples/text_aloha.txt",
+    "bytes": 4550,
+    "sha256": "231a09c83c7080bf182c358c97aca121893f5dd1352fee50a5ca610e20daa246"
+  },
+  {
+    "path": "assets/random_samples/text_hand.txt",
+    "bytes": 3844,
+    "sha256": "6496392afa59e3cd45b652307cd19cfd75a626295b05d6af7eb1e0d10a2ff596"
+  },
+  {
+    "path": "assets/random_samples/text_panda.txt",
+    "bytes": 7578,
+    "sha256": "bb28884a581b8dac560da5676198f1754357945f3f0880dcdfab024dfafd1bda"
+  },
+  {
+    "path": "assets/teaser.png",
+    "bytes": 572961,
+    "sha256": "27d604721803dd8bab31ebbe7a0ccb94e40e1b538c40e517129751f6e91fe0bd"
+  },
+  {
+    "path": "configs/libero/accelerate_zero2.yaml",
+    "bytes": 492,
+    "sha256": "f0f265e577da2492d785dfd5a7031cacb833235ccefd8c07aa048ff42002e242"
+  },
+  {
+    "path": "configs/libero/dataset_stats.json",
+    "bytes": 40964,
+    "sha256": "4717a109760fcd1d504c7d301ff95106b14446a89b019a026427ddbbcc866d1b"
+  },
+  {
+    "path": "configs/libero/deepspeed_zero2.json",
+    "bytes": 400,
+    "sha256": "57a47cd51dc5434250e2975ab46fe6f9f0e742f5e5b6ae50a587368959bae77a"
+  },
+  {
+    "path": "configs/libero/eval_ood.yaml",
+    "bytes": 494,
+    "sha256": "d1ee29118dad9d0117b7fc6c4a6a4d40025239af2cfc73e861c269b1ee69b773"
+  },
+  {
+    "path": "configs/libero/eval_pro.yaml",
+    "bytes": 469,
+    "sha256": "aba2f40cb089993a73901c081c059730a140f7d7ce0059f2cd5ee9d4f8541082"
+  },
+  {
+    "path": "configs/libero/eval_standard.yaml",
+    "bytes": 475,
+    "sha256": "45a5d165d8fb92f392a278bf8a9713d49db55f12e45c60e66b8c7462359cf4d0"
+  },
+  {
+    "path": "configs/libero/requirements_pro.txt",
+    "bytes": 269,
+    "sha256": "f0710d60127cec28c84015205f1ab9c8b97be8f89c959dfa35392a4b264a7cd7"
+  },
+  {
+    "path": "configs/libero/requirements_standard.txt",
+    "bytes": 218,
+    "sha256": "f103e8f7af8f4b0075806884291409597a844a60d324352608fe4cd982d443a6"
+  },
+  {
+    "path": "configs/libero/train_action.yaml",
+    "bytes": 5165,
+    "sha256": "d2a4fb641c847f0e9f66994e425c0ef8f976228b6a744561982d7dc238f23e29"
+  },
+  {
+    "path": "configs/libero/train_video.yaml",
+    "bytes": 4550,
+    "sha256": "3f8c1fa0c831fbffb862a50d5156097efd08b4df4b9230baf902f058f5172db0"
+  },
+  {
+    "path": "configs/robodojo/accelerate.yaml",
+    "bytes": 337,
+    "sha256": "0a0535e4c3e35016d0176370167fb435b1c59e15921fc8d4037ab509ff9dd467"
+  },
+  {
+    "path": "configs/robodojo/deepspeed_zero1.json",
+    "bytes": 416,
+    "sha256": "9ef633d5a346924567ae18a801945389ee037136a4ff8ca46bce99ab3c926b58"
+  },
+  {
+    "path": "configs/robodojo/eval_reference54.json",
+    "bytes": 6443,
+    "sha256": "588ffeb92796bd34c4dc7a2c1570a8dcb61adc9386c60da7d7f0a3bd63022ca5"
+  },
+  {
+    "path": "configs/robodojo/holdout.json",
+    "bytes": 3675,
+    "sha256": "7bf4892dc9271c6aea6fa20acdc5f76057b35851097c152e3cff44a3c959a0e0"
+  },
+  {
+    "path": "configs/robodojo/normalization_ee16.json",
+    "bytes": 100256,
+    "sha256": "2649d4e3ff3d6d400c9953b7c20c79541474f9c38a8a9916b9caacecd8578f16"
+  },
+  {
+    "path": "configs/robodojo/source_tasks.csv",
+    "bytes": 3939,
+    "sha256": "19137ffb1d34b65f56c9cbaf68c20a75d329b26a3a7d5e4f5daafa6469e84d58"
+  },
+  {
+    "path": "configs/robodojo/tasks54.txt",
+    "bytes": 1000,
+    "sha256": "27bcc9619c32029032ddbcbf4ca419e7f6c177d12c534d615778ea69498c9b72"
+  },
+  {
+    "path": "configs/robodojo/train_100k.yaml",
+    "bytes": 6889,
+    "sha256": "1eb185bb258d0ee6808df8a7b338d1fdd4882ada8a34532211291c03d5517930"
+  },
+  {
+    "path": "configs/robodojo/train_video_10k.yaml",
+    "bytes": 3970,
+    "sha256": "cfe17410517dd29e11e98bbb7bb61a02ea45f18788024429f783aa43614e78d4"
+  },
+  {
+    "path": "docs/evaluation.md",
+    "bytes": 5982,
+    "sha256": "34b454a647b5b1485ec9df14b1fcb1b72f18a19ebc57909d841715b0e938efc8"
+  },
+  {
+    "path": "docs/libero.md",
+    "bytes": 19135,
+    "sha256": "a0c37f52340087ad8c03c441991ab699979841647b5ec90bb847192249977727"
+  },
+  {
+    "path": "docs/robodojo.md",
+    "bytes": 17555,
+    "sha256": "e36da815a807be9a171f141d5a90af507c6647ad21d7a3ae847a084810d22f94"
+  },
+  {
+    "path": "docs/training.md",
+    "bytes": 8755,
+    "sha256": "a8caf4abed7e9f29dc25d9487f0e7d5ecbadb4983e4d32564cd37a41a69e740a"
+  },
+  {
+    "path": "docs/video_prediction.md",
+    "bytes": 12092,
+    "sha256": "3ea5ad5235e4d0fd0ec6d2cc82c9e363f4345a4c9f83b6fb356c9c196e909baa"
+  },
+  {
+    "path": "environment-reference.txt",
+    "bytes": 360,
+    "sha256": "ed65258fafd268a354925665a29f22388b3b1e0851e604b99db0e281048585c0"
+  },
+  {
+    "path": "licenses/Apache-2.0.txt",
+    "bytes": 11357,
+    "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+  },
+  {
+    "path": "licenses/RoboDojo-MIT.txt",
+    "bytes": 1091,
+    "sha256": "7794bb06af8fe5485ca912454ad1665ccd7846c45f9c2b1258658e480948cdbe"
+  },
+  {
+    "path": "licenses/XPolicyLab.txt",
+    "bytes": 11357,
+    "sha256": "c71d239df91726fc519c6eb72d318ec65820627232b2f796219e87dcf35d0ab4"
+  },
+  {
+    "path": "patches/robodojo_spring_button_reset.patch",
+    "bytes": 4815,
+    "sha256": "b5e3100a0608d4a70ec1f56b99ea0395d9f8b8bb4ebc0a5859222d3bbfee0c9f"
+  },
+  {
+    "path": "policy/VPP2/__init__.py",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "policy/VPP2/deploy.py",
+    "bytes": 1373,
+    "sha256": "ab94a8569e6168ab7cde6660890035e11b34961ff2648854a7b61d188c555b6e"
+  },
+  {
+    "path": "policy/VPP2/deploy.yml",
+    "bytes": 486,
+    "sha256": "d2c3f06eb2ffa2d1866767dc20db8d60e542fc2418dbc4cf86d4a0f86f944c5e"
+  },
+  {
+    "path": "policy/VPP2/model.py",
+    "bytes": 14722,
+    "sha256": "8323e32d547b909e78d269e6758e774cc262354df3a07e7f08756d6e8b8dfab9"
+  },
+  {
+    "path": "pyproject.toml",
+    "bytes": 1122,
+    "sha256": "5fad9021043ddee53d19cd2bbaadf11b9608674260b13cf890dfef646161be88"
+  },
+  {
+    "path": "requirements-train.txt",
+    "bytes": 93,
+    "sha256": "ea1403e4c3e4e3076f6ff676571a34ecfe23da2a0d814455dcf1295bd429868e"
+  },
+  {
+    "path": "requirements.txt",
+    "bytes": 516,
+    "sha256": "2098e0ae61a82c2025648d57323f9c7ef88aad4d22d87e15eed6ccff91db34f8"
+  },
+  {
+    "path": "scripts/enhance_prompt.sh",
+    "bytes": 307,
+    "sha256": "cdbca7af7f8ccf9aeafe13d2bc48ef4f2a6277b3b78467eacbafd5893da0e4f1"
+  },
+  {
+    "path": "scripts/infer_video.sh",
+    "bytes": 233,
+    "sha256": "e06b65d58a7600d6af0965d9bb0d5d96126d9e0852428621bb76b5dd9af59b52"
+  },
+  {
+    "path": "scripts/libero/audit.sh",
+    "bytes": 119,
+    "sha256": "f7bdedc9ab2195a58ab65e10d45667eeec6810f8890e207e1ec376ab2f9ad20e"
+  },
+  {
+    "path": "scripts/libero/common.sh",
+    "bytes": 219,
+    "sha256": "b11f7183ea8b89efacfb0bf7e7b393ce485bcf7b72e30564bc6da4b8a9f2da58"
+  },
+  {
+    "path": "scripts/libero/eval.sh",
+    "bytes": 118,
+    "sha256": "546f8bbdb5a7825e7c8e0741e0fc7e9f2c2e97aa35022480da9d6021f6f8fa8b"
+  },
+  {
+    "path": "scripts/libero/init_action.sh",
+    "bytes": 125,
+    "sha256": "276c6c38f361bc4dc7eb9cf129db819d22df9afa644bb9449513f6098d6614e3"
+  },
+  {
+    "path": "scripts/libero/prepare.sh",
+    "bytes": 124,
+    "sha256": "8127912f367ed41c4b19ee40a449d19c08c9be78b0dfe31eb48dab760e3dfefd"
+  },
+  {
+    "path": "scripts/libero/prepare_pro.sh",
+    "bytes": 125,
+    "sha256": "e3d25fa1132be928ec604f71053c6916270b58e4573b27937e16ac333d6f6434"
+  },
+  {
+    "path": "scripts/libero/text_cache.sh",
+    "bytes": 124,
+    "sha256": "0194713a98978a5599a26d865c0041dcc2e49b6ac5cf023797edc8c406a95ccf"
+  },
+  {
+    "path": "scripts/libero/train_action.sh",
+    "bytes": 511,
+    "sha256": "9c616e8f7cf004f4f391c727e6918e70914824367cefdad599063dd29ce2ada7"
+  },
+  {
+    "path": "scripts/libero/train_video.sh",
+    "bytes": 508,
+    "sha256": "2d7fa7fd1d8c57bfba7ce2580d0d8bcf8c8e0ffb8052e491fec705a781d68be4"
+  },
+  {
+    "path": "scripts/robodojo/common.sh",
+    "bytes": 219,
+    "sha256": "b11f7183ea8b89efacfb0bf7e7b393ce485bcf7b72e30564bc6da4b8a9f2da58"
+  },
+  {
+    "path": "scripts/robodojo/configure_eval.sh",
+    "bytes": 118,
+    "sha256": "ce7d0cba127ad52879d989144f18714a12d05ff41398cc740b96e4dc694d1ae9"
+  },
+  {
+    "path": "scripts/robodojo/convert.sh",
+    "bytes": 114,
+    "sha256": "5bcdd439bc7007cd2a627a902bab252f0c4579542a323bb44fdea792d786c536"
+  },
+  {
+    "path": "scripts/robodojo/eval.sh",
+    "bytes": 111,
+    "sha256": "64eb78d03a8934b720772842b0c055d7dbef64c5a43da6895827ada68ae13380"
+  },
+  {
+    "path": "scripts/robodojo/export.sh",
+    "bytes": 127,
+    "sha256": "3b45be32a4648b04636b167c78b14a411f74356f9c495bb117775e67e17330c3"
+  },
+  {
+    "path": "scripts/robodojo/init_action.sh",
+    "bytes": 118,
+    "sha256": "c8578e7ec9d25c670c8d1b86d385fe3cd2f276ef1cfba85e919abc8ed182c44b"
+  },
+  {
+    "path": "scripts/robodojo/install_adapter.sh",
+    "bytes": 122,
+    "sha256": "89ce0da8a46d8efe108946323cfe597d964bb5eb4cf4dba5933f7bf98d2bfce5"
+  },
+  {
+    "path": "scripts/robodojo/prepare.sh",
+    "bytes": 114,
+    "sha256": "2f63ef60f6447584febd3c00ecdefca7d745f5c094fa9d446ab316c543df956e"
+  },
+  {
+    "path": "scripts/robodojo/server.sh",
+    "bytes": 113,
+    "sha256": "f6b468682651c2ceedb3eacaa90a707da3473f53205e8c1bb4dc09da2ef0557a"
+  },
+  {
+    "path": "scripts/robodojo/text_cache.sh",
+    "bytes": 117,
+    "sha256": "2d9f264dc58446ea3d9d122f67a7ff010fd820ead760d184645ba6a71d275f58"
+  },
+  {
+    "path": "scripts/robodojo/train.sh",
+    "bytes": 834,
+    "sha256": "d831f20ad3bf82704a2ad27a3ddfbd6ea012ffa36f6a7ef04e8e2119f4e71998"
+  },
+  {
+    "path": "scripts/robodojo/train_video.sh",
+    "bytes": 744,
+    "sha256": "1f57812a47f208a9063b19aafde76e64ac1bd38a92b36cfc4afc1cc01811f99b"
+  },
+  {
+    "path": "scripts/train.sh",
+    "bytes": 2222,
+    "sha256": "36ea59104b82dfbbe3c17bd31755dbecae26b76b7ec4d67bd6cefc487f242285"
+  },
+  {
+    "path": "src/vpp2/__init__.py",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "src/vpp2/benchmark/__init__.py",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "src/vpp2/benchmark/audit.py",
+    "bytes": 11434,
+    "sha256": "8587be371653c38b9926aa0ace006a244f270e0ef0020147a7bf5b0fc85d4538"
+  },
+  {
+    "path": "src/vpp2/benchmark/packed.py",
+    "bytes": 13163,
+    "sha256": "5047fd02f3fcc68e41f543fe83bc9202769a05794d898524d6d25e308f2b5125"
+  },
+  {
+    "path": "src/vpp2/benchmark/scheduler_io.py",
+    "bytes": 7756,
+    "sha256": "d6df06259549faed2da9f2888b540eac8e1ff2895c339eea58b4ea6a7e3b3cb0"
+  },
+  {
+    "path": "src/vpp2/checkpoint_compat.py",
+    "bytes": 1588,
+    "sha256": "462c5f93812483b5871633b200bc2ffecb9c201a2caf6b14f8f36dbe95fba50a"
+  },
+  {
+    "path": "src/vpp2/cli.py",
+    "bytes": 15295,
+    "sha256": "54c19a0f7e25b53bbf56ec13b0f537c9d7b81282e1e80575bddfb470172164e3"
+  },
+  {
+    "path": "src/vpp2/convert_robodojo.py",
+    "bytes": 10092,
+    "sha256": "c5b17840880358348254bae3d2b21869f43588815f0483c8a28c4bb86f8d2541"
+  },
+  {
+    "path": "src/vpp2/data.py",
+    "bytes": 8046,
+    "sha256": "8574e1ae3c6ca6e4b84633ee1815f2b3f2ea17c1e55f12fda0b00c5c5a6a7b53"
+  },
+  {
+    "path": "src/vpp2/datasets/__init__.py",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "src/vpp2/datasets/dataset_utils.py",
+    "bytes": 3735,
+    "sha256": "e1a1471b0aa70917eaf699f85a9acf3ac70d9fb6eb9ebaf02d2bf2f218d6ab2f"
+  },
+  {
+    "path": "src/vpp2/datasets/lerobot/__init__.py",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "src/vpp2/datasets/lerobot/base_lerobot_dataset.py",
+    "bytes": 24064,
+    "sha256": "729fb3fd4ca531212eadb4a4e9c7e9f97ad34cca091d66380acd6b179f0c29c6"
+  },
+  {
+    "path": "src/vpp2/datasets/lerobot/constants.py",
+    "bytes": 1915,
+    "sha256": "11ac9260341e1560c5eb0dd7acb79ed63c74180b8ab4113c27622ff213db417f"
+  },
+  {
+    "path": "src/vpp2/datasets/lerobot/critical_phase_dataset.py",
+    "bytes": 4119,
+    "sha256": "bfe75bb9593ec646236777d90d9fa309fa0e1188db07e07a3be0810edbe3da56"
+  },
+  {
+    "path": "src/vpp2/datasets/lerobot/critical_phase_sampling.py",
+    "bytes": 16648,
+    "sha256": "266b0b7b023f014f4ccd935b6015b0a05b4659f372264fdefd997ea9692b244a"
+  },
+  {
+    "path": "src/vpp2/datasets/lerobot/episode_instruction.py",
+    "bytes": 2127,
+    "sha256": "74767839a813c7902861f4561101541c282b72e261df1fd28fe8d06c91231b69"
+  },
+  {
+    "path": "src/vpp2/datasets/lerobot/lerobot/__init__.py",
+    "bytes": 1,
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+  },
+  {
+    "path": "src/vpp2/datasets/lerobot/lerobot/datasets/__init__.py",
+    "bytes": 1,
+    "sha256": "01ba4719c80b6fe911b091a7c05124b64eeece964e09c058ef8f9805daca546b"
+  },
+  {
+    "path": "src/vpp2/datasets/lerobot/lerobot/datasets/compute_stats.py",
+    "bytes": 7067,
+    "sha256": "7d7daab219332b5abdfd5ec67ccaf3502e8eb583a17a4e482c3f3d4f7a691e89"
+  },
+  {
+    "path": "src/vpp2/datasets/lerobot/lerobot/datasets/utils.py",
+    "bytes": 33437,
+    "sha256": "4fdb4ac0653201e6743f2161c485213429948c1e1d5b068d03b4d97803254006"
+  },
+  {
+    "path": "src/vpp2/datasets/lerobot/lerobot/datasets/video_utils.py",
+    "bytes": 22200,
+    "sha256": "4f66c410ae6aa5a98acfc3320f3dd7b017d0285117054f14226f9e5d82395087"
+  },
+  {
+    "path": "src/vpp2/datasets/lerobot/lerobot/lerobot_dataset.py",
+    "bytes": 55524,
+    "sha256": "5659e992010bb6674ec50ab0d33b28a8e9dab0ecc895c199662af4c40fe56629"
+  },
+  {
+    "path": "src/vpp2/datasets/lerobot/processors/__init__.py",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "src/vpp2/datasets/lerobot/processors/base_processor.py",
+    "bytes": 10866,
+    "sha256": "d3327cbe398d77761df960014d41e70d349bb0fa42bca874333b9ee970222447"
+  },
+  {
+    "path": "src/vpp2/datasets/lerobot/processors/vpp2_processor.py",
+    "bytes": 13988,
+    "sha256": "43c5604cbfc315b7377316cb97c9a6f3322124404397abfd01c6c3d0090cd414"
+  },
+  {
+    "path": "src/vpp2/datasets/lerobot/robot_video_dataset.py",
+    "bytes": 13445,
+    "sha256": "8eabfbd649116b0b4d6c9704c0df34febbf8875f6ab863dd75f4107dbbcdef73"
+  },
+  {
+    "path": "src/vpp2/datasets/lerobot/transforms/__init__.py",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "src/vpp2/datasets/lerobot/transforms/action_state_merger.py",
+    "bytes": 2502,
+    "sha256": "39fd44f254bd7fb71b9269d75d8f9b5a5bbbe167ea438dda92d40eda1d256734"
+  },
+  {
+    "path": "src/vpp2/datasets/lerobot/transforms/image.py",
+    "bytes": 2538,
+    "sha256": "f494d262ce29770e959bdff60b997f7a07e5f00d10ef515eee7be813d1db038f"
+  },
+  {
+    "path": "src/vpp2/datasets/lerobot/transforms/rotation.py",
+    "bytes": 5666,
+    "sha256": "feb59d26539be6cfdb86488f0c10c11488ed73901658bc657e67a755ddb9e67e"
+  },
+  {
+    "path": "src/vpp2/datasets/lerobot/utils/__init__.py",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "src/vpp2/datasets/lerobot/utils/normalizer.py",
+    "bytes": 7501,
+    "sha256": "8207d813b698a91dfdbe6910a4aa1fe0e775a2a8edf5c05b2d7a42591e9f8adb"
+  },
+  {
+    "path": "src/vpp2/datasets/lerobot/utils/rotation.py",
+    "bytes": 21040,
+    "sha256": "8ea2c72565707f5979967a1abeb5edf1eaa2c3fec55a7b50e640de869fc9fbcf"
+  },
+  {
+    "path": "src/vpp2/datasets/lerobot/video_event_dataset.py",
+    "bytes": 100055,
+    "sha256": "c20d3f5e2bc05e1b7ed94ae38872883a976a179e09b7fa051e94f94e2836c02d"
+  },
+  {
+    "path": "src/vpp2/enhance_prompt.py",
+    "bytes": 20476,
+    "sha256": "f31b3190c24bad073c5e3121ded4f564232729566e8c1fcc3e76fe75b28faf45"
+  },
+  {
+    "path": "src/vpp2/evaluation.py",
+    "bytes": 15378,
+    "sha256": "9b76882149e3c3a8c417a0e23514af1bb305c01bf0b6d21fff1f70bc9843f55a"
+  },
+  {
+    "path": "src/vpp2/inference.py",
+    "bytes": 15480,
+    "sha256": "42b3057a85aaacbb87440bc740f13b09b9c82cd51d8c5af4e080716aabdcf38e"
+  },
+  {
+    "path": "src/vpp2/libero/__init__.py",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "src/vpp2/libero/action_model.py",
+    "bytes": 29058,
+    "sha256": "178fbe4cf02b9a2e133ef31389b6bb2f9baf0504bd0818a265b6bff32ebc3914"
+  },
+  {
+    "path": "src/vpp2/libero/cli.py",
+    "bytes": 7936,
+    "sha256": "fcf68a88e2db0a9b786c6199d9b719802fe4b84514741658b49e2b06e2473e45"
+  },
+  {
+    "path": "src/vpp2/libero/data.py",
+    "bytes": 4097,
+    "sha256": "19b699381e7d6fa769b5090c7125ae01b7584576e969468660ee65b1585ef5f1"
+  },
+  {
+    "path": "src/vpp2/libero/diagnostics.py",
+    "bytes": 9788,
+    "sha256": "9540e31dfd2def06bec942ffe73262278700a17a340e14cb5bd41a295706e147"
+  },
+  {
+    "path": "src/vpp2/libero/eval_helpers.py",
+    "bytes": 13115,
+    "sha256": "ac338d4ade195ceb3a87620d162befa9679e2d7ed3d91b09927e5d59d86d97f4"
+  },
+  {
+    "path": "src/vpp2/libero/eval_libero_single.py",
+    "bytes": 15180,
+    "sha256": "87e6b457dc412ef4fe5d01aa48b1a6d20a28dbce3152848042e2103769e4efef"
+  },
+  {
+    "path": "src/vpp2/libero/eval_libero_task_manifest.py",
+    "bytes": 12292,
+    "sha256": "f0c721a7ddc768edddc8b0e065a4d8aeec35e1a546c88deebd9097ad93f6227b"
+  },
+  {
+    "path": "src/vpp2/libero/evaluate.py",
+    "bytes": 13488,
+    "sha256": "24216f9814f8304e077d72ff8d8c778fd588239313b34cd7d23b960c8f924c67"
+  },
+  {
+    "path": "src/vpp2/libero/libero_utils.py",
+    "bytes": 3933,
+    "sha256": "c7cc23976c86eabcada4846d46345d3605fc2ce03929761646486be3901697d4"
+  },
+  {
+    "path": "src/vpp2/libero/prepare_pro.py",
+    "bytes": 2277,
+    "sha256": "0999050352d924c11d29b22f63e902162d8cfb23f94815c93c01295c11ed81ae"
+  },
+  {
+    "path": "src/vpp2/libero/pro_alias.py",
+    "bytes": 565,
+    "sha256": "90b5c8c8061bc727a6e413a8746fcc98cbd06e1c7c4175fd223b45af4f10b700"
+  },
+  {
+    "path": "src/vpp2/libero/pro_runtime.py",
+    "bytes": 1789,
+    "sha256": "adf94ed64b032aaeb0d88391e7b653f88f67e76b9411419ece25faa31ccc1340"
+  },
+  {
+    "path": "src/vpp2/libero/protocols.py",
+    "bytes": 2003,
+    "sha256": "68225c95eeeee25032966a7f90c1ba18067c53225397f59a463d764030fd0d93"
+  },
+  {
+    "path": "src/vpp2/libero/runtime.py",
+    "bytes": 11379,
+    "sha256": "1e2e2900a604d33cbdf8774cfa33dcee1065f21dc0b59fcf30799b5098c1662a"
+  },
+  {
+    "path": "src/vpp2/libero/trainer.py",
+    "bytes": 3483,
+    "sha256": "ea29b4e000047a6b0c8aee3cb6f32df9187987a657924085dbafd9628315107b"
+  },
+  {
+    "path": "src/vpp2/libero/worker.py",
+    "bytes": 3938,
+    "sha256": "9df6350c4ab92dea70863c08f1bdcebd0d77574a3a2d8d7ac9899a5a825be6b0"
+  },
+  {
+    "path": "src/vpp2/models/__init__.py",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "src/vpp2/models/wan21_14b/__init__.py",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "src/vpp2/models/wan21_14b/action_dit.py",
+    "bytes": 18499,
+    "sha256": "9a654edd860ce77c1308923bd338c7f14d09f68686642531d7143c16b9f6f331"
+  },
+  {
+    "path": "src/vpp2/models/wan21_14b/helpers/__init__.py",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "src/vpp2/models/wan21_14b/helpers/gradient.py",
+    "bytes": 566,
+    "sha256": "594249b6eb931048e352fd3ffef9b1ac1db9e4fc74659e04216d6b823dd174f3"
+  },
+  {
+    "path": "src/vpp2/models/wan21_14b/helpers/io.py",
+    "bytes": 2224,
+    "sha256": "1b68cf2f2fd674c7a59140f8632d4464044bffc2e9277ef5f9a975e7c699966a"
+  },
+  {
+    "path": "src/vpp2/models/wan21_14b/helpers/loader.py",
+    "bytes": 8629,
+    "sha256": "4c5dc54eb3b7c0c44519f464b2e6605b338c73e9256a9f51008e4e663bcb44b2"
+  },
+  {
+    "path": "src/vpp2/models/wan21_14b/mot.py",
+    "bytes": 41871,
+    "sha256": "bac5d3ce4c0d8debae30d57993bce82fc90e5578887f0d550047bf24f1a986b3"
+  },
+  {
+    "path": "src/vpp2/models/wan21_14b/schedulers/__init__.py",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "src/vpp2/models/wan21_14b/schedulers/scheduler_continuous.py",
+    "bytes": 5915,
+    "sha256": "15de04574c1d8ccb794ca6560b1e501e5c83cc86104bb80f1eb3cc3b0324ffe0"
+  },
+  {
+    "path": "src/vpp2/models/wan21_14b/vpp2.py",
+    "bytes": 91395,
+    "sha256": "5ffcf791dcc7cc0e52259c8106be2844d82b988bfecd3f61306e72049540f857"
+  },
+  {
+    "path": "src/vpp2/models/wan21_14b/wan21.py",
+    "bytes": 32405,
+    "sha256": "01b45cc71f69a6914f7b286559317c8e8485d0b0fec93bb28ebc37c183c295f4"
+  },
+  {
+    "path": "src/vpp2/models/wan21_14b/wan_video_clip.py",
+    "bytes": 6221,
+    "sha256": "f65e44c9d1b7811d2996b3fa22e6fe4c2ac5e6edf1fc2c14251cf582bf8d1f05"
+  },
+  {
+    "path": "src/vpp2/models/wan21_14b/wan_video_dit.py",
+    "bytes": 23902,
+    "sha256": "0d1b5837ea923508c05394d56aaa465813e7b4f5aea3b31ceceae39b2de9b0f9"
+  },
+  {
+    "path": "src/vpp2/models/wan21_14b/wan_video_text_encoder.py",
+    "bytes": 11240,
+    "sha256": "902a1e46b21b5c48e166fe03defabb94b3773c6bbe836fc09b9a0d0894eb1f6e"
+  },
+  {
+    "path": "src/vpp2/models/wan21_14b/wan_video_vae.py",
+    "bytes": 29980,
+    "sha256": "33f7d804677b44a6f3ab334684017dcdb1e9dfb748279de76ad94a5bb71a7e51"
+  },
+  {
+    "path": "src/vpp2/policy.py",
+    "bytes": 19895,
+    "sha256": "2a7696cd73ccb99575bf901185cf578c3775945f61f6e67aeb2b4ec6bfc4e30b"
+  },
+  {
+    "path": "src/vpp2/preflight.py",
+    "bytes": 4510,
+    "sha256": "7a91e486675a4cdf38565e0f4b58e60a68bba7de5654cfff736b5df58f5c53a6"
+  },
+  {
+    "path": "src/vpp2/robodojo.py",
+    "bytes": 4578,
+    "sha256": "183db869a622ef17ee92c487949db2e22a7d1365558fe703bfb8dd8fef83e9c6"
+  },
+  {
+    "path": "src/vpp2/runtime.py",
+    "bytes": 16285,
+    "sha256": "e26885a3732f5fdac3d8381da870a1673d0c03354f02f9deee7fe779d645f8a7"
+  },
+  {
+    "path": "src/vpp2/trainer.py",
+    "bytes": 54217,
+    "sha256": "b1f07727096359bda2e88cabc2d364845b312190e0a789f695a184b0a02e8651"
+  },
+  {
+    "path": "src/vpp2/utils/__init__.py",
+    "bytes": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+  },
+  {
+    "path": "src/vpp2/utils/conditioning.py",
+    "bytes": 3440,
+    "sha256": "43d43f0f3ca0add64498c3d64a3791513a53e3fce0ea53f77ef09580a86b7b2d"
+  },
+  {
+    "path": "src/vpp2/utils/fs.py",
+    "bytes": 76,
+    "sha256": "69e6df236b43360428a613686c8f37c531c0d16a3a2c5b06a725c46b49d657c5"
+  },
+  {
+    "path": "src/vpp2/utils/logging_config.py",
+    "bytes": 5258,
+    "sha256": "1de4abf66d9d201b49e7bff48291643b9dc5ec9b6e7918ca73e1bd18887b1c43"
+  },
+  {
+    "path": "src/vpp2/utils/lr_continuation.py",
+    "bytes": 2638,
+    "sha256": "72ea9f2af52041db19aab681d7a99fdf6d87d5ed5486f2499383a211c6c1ab76"
+  },
+  {
+    "path": "src/vpp2/utils/misc.py",
+    "bytes": 176,
+    "sha256": "7e42c330c24604e118f1878473dc804aa8a272944df502ef1414c05be4d5bba2"
+  },
+  {
+    "path": "src/vpp2/utils/pytorch_utils.py",
+    "bytes": 5036,
+    "sha256": "9b0ba19de9a64458b12a0fb24f0811f49d9e9fca5d8b815f5f5ecd3b7886fd63"
+  },
+  {
+    "path": "src/vpp2/utils/samplers.py",
+    "bytes": 1339,
+    "sha256": "4d3bd9b2d498f4ad8f2cf9765d60c4bf5368fa6fa2a7d42d0db6210f66899652"
+  },
+  {
+    "path": "src/vpp2/utils/training_profiler.py",
+    "bytes": 11693,
+    "sha256": "91f6d98577e63d85e474c738a9bc1901edc194bdf318b5387d527c31b6708832"
+  },
+  {
+    "path": "src/vpp2/utils/video_caption.py",
+    "bytes": 2108,
+    "sha256": "d9572deb3690aecb0f16c052016cedc5f94da8ce8f016b4dff1a4e358e18d5e5"
+  },
+  {
+    "path": "src/vpp2/utils/video_io.py",
+    "bytes": 819,
+    "sha256": "9e9898b021a44e87aa1b4e6d13e3755a9869a2e27a7eb53c72a6802808d5bd80"
+  },
+  {
+    "path": "src/vpp2/utils/video_metrics.py",
+    "bytes": 3458,
+    "sha256": "1840a37685d686336c7326a2a3d4fbe048d1e8e7e431fb14519d360a8b7aaae8"
+  },
+  {
+    "path": "src/vpp2/video_training.py",
+    "bytes": 2477,
+    "sha256": "20f55bf8b0a7dba6422a1115be1c8adf31a0db6a9f53a8f6f53f5d970188bfb2"
+  },
+  {
+    "path": "src/vpp2/weight_resize.py",
+    "bytes": 2818,
+    "sha256": "269edd4b9d32a1c7f363ee082dde7ce57f2176190daab6d5bf4a1c98ab43f0b4"
+  },
+  {
+    "path": "src/vpp2/weights.py",
+    "bytes": 6245,
+    "sha256": "5dbdff347de1b57e30433efca6da28334d0263d27aaa9b2278d95614db1b8641"
+  }
+]

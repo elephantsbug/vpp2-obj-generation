@@ -1,0 +1,121 @@
+output_dir: /data2/niurc/vpp2-obj-generation/runs/obj_video_train_v1
+batch_size: 4
+gradient_accumulation_steps: 8
+reference_global_batch_size: 832
+num_workers: 4
+learning_rate: 2.0e-06
+lr_scheduler_type: cosine
+lr_min_ratio: 0.025
+warmup_steps: 200
+num_epochs: 1
+max_steps: 10000
+log_every: 1
+save_every: 2000
+save_final_checkpoint: true
+eval_every: 0
+eval_num_inference_steps: 10
+train_mode: video_only
+optimizer_betas:
+- 0.9
+- 0.999
+checkpoint_mode: full
+mixed_precision: bf16
+seed: 100008
+max_grad_norm: 1.0
+weight_decay: 0.01
+resume: null
+resume_ckpt: null
+resume_ckpt_load_video: true
+preflight:
+  enabled: false
+profiling:
+  enabled: false
+wandb:
+  enabled: false
+  project: vpp2-obj-generation
+  workspace: null
+  name: object-video-train-v1
+  group: null
+  mode: offline
+paths:
+  project: /data2/niurc/vpp2-obj-generation
+  wan: /data2/niurc/vpp2-obj-generation/weights/checkpoints/Wan2.1-I2V-14B-480P
+  video_init: /data2/niurc/vpp2-obj-generation/weights/checkpoints_video/vpp2-video-stage2-17f.pth
+  tokenizer: /data2/niurc/vpp2-obj-generation/runs/prompt_obj_chronological_128_v1/tokenizer
+  train_manifest: /data2/niurc/vpp2-obj-generation/data/robotwin_observer_ego_obj_splits_v1/train.jsonl
+  test_manifest: /data2/niurc/vpp2-obj-generation/data/robotwin_observer_ego_obj_splits_v1/test.jsonl
+  data_contract: /data2/niurc/vpp2-obj-generation/configs/obj_video_data_contract.json
+data:
+  train:
+    _target_: vpp2_obj.dataset.PairedObjectVideoDataset
+    manifest_path: /data2/niurc/vpp2-obj-generation/data/robotwin_observer_ego_obj_splits_v1/train.jsonl
+    training: true
+    balance_tasks: true
+    history_frames: 8
+    history_stride: 30
+    prediction_frames: 16
+    prediction_stride: 5
+    video_size:
+    - 224
+    - 448
+    seed: 100008
+    samples_per_epoch: 703872
+    verify_hashes: true
+    embedding_cache_size: 8
+  test:
+    _target_: vpp2_obj.dataset.PairedObjectVideoDataset
+    manifest_path: /data2/niurc/vpp2-obj-generation/data/robotwin_observer_ego_obj_splits_v1/test.jsonl
+    training: false
+    balance_tasks: false
+    history_frames: 8
+    history_stride: 30
+    prediction_frames: 16
+    prediction_stride: 5
+    video_size:
+    - 224
+    - 448
+    seed: 100008
+    samples_per_epoch: null
+    verify_hashes: true
+    embedding_cache_size: 8
+  val: null
+model:
+  _target_: vpp2_obj.model.create_model
+  model_id: /data2/niurc/vpp2-obj-generation/weights/checkpoints/Wan2.1-I2V-14B-480P
+  dit_checkpoint_path: /data2/niurc/vpp2-obj-generation/weights/checkpoints_video/vpp2-video-stage2-17f.pth
+  tokenizer_model_id: /data2/niurc/vpp2-obj-generation/runs/prompt_obj_chronological_128_v1/tokenizer
+  tokenizer_max_len: 128
+  load_text_encoder: false
+  load_clip_encoder: true
+  redirect_common_files: false
+  condition_clip_frame: first
+  condition_latent_loss_weight: 1.0
+  video_dit_config:
+    model_type: i2v
+    patch_size:
+    - 1
+    - 2
+    - 2
+    text_len: 128
+    in_dim: 36
+    dim: 5120
+    hidden_dim: 5120
+    ffn_dim: 13824
+    freq_dim: 256
+    text_dim: 4096
+    out_dim: 16
+    num_heads: 40
+    attn_head_dim: 128
+    num_layers: 40
+    eps: 1.0e-06
+    qk_norm: true
+    cross_attn_norm: true
+    use_gradient_checkpointing: true
+    video_attention_mask_mode: bidirectional
+  video_scheduler:
+    train_shift: 3.0
+    infer_shift: 3.0
+    num_train_timesteps: 1000
+    train_sampling_strategy: shifted_uniform
+    beta_alpha: 7.0
+    beta_beta: 1.0

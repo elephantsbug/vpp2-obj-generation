@@ -1,0 +1,71 @@
+{
+  "format": "vpp2_release_config_v1",
+  "model_type": "vpp2",
+  "model_name": "Video Prediction Policy 2: Predict Better, Act Better",
+  "base_model": "Wan-AI/Wan2.1-I2V-14B-480P",
+  "code_repository": "https://github.com/roboterax/video-prediction-policy-2",
+  "shared_assets": {
+    "wan_model_dir": "checkpoints/Wan2.1-I2V-14B-480P"
+  },
+  "variants": {
+    "video_stage1_49f": {
+      "video_checkpoint": "checkpoints_video/vpp2-video-stage1-49f.pth",
+      "num_frames": 49,
+      "inference": {
+        "sampling_steps": 30,
+        "guidance_scale": 4,
+        "sigma_shift": 3,
+        "height": 240,
+        "width": 416
+      }
+    },
+    "video_stage2_17f": {
+      "video_checkpoint": "checkpoints_video/vpp2-video-stage2-17f.pth",
+      "num_frames": 17,
+      "inference": {
+        "sampling_steps": 30,
+        "guidance_scale": 4,
+        "sigma_shift": 3,
+        "height": 240,
+        "width": 416
+      }
+    },
+    "robodojo_his10k": {
+      "video_checkpoint": "checkpoints/initialization/robodojo_his10k.pt",
+      "use": "History-conditioned Video-10k initializer for joint Video + Action2B training"
+    },
+    "robodojo_joint2b_100k": {
+      "video_checkpoint": "checkpoints/joint2b_s100000/video.pt",
+      "action_checkpoint": "checkpoints/joint2b_s100000/action.pt",
+      "manifest": "checkpoints/joint2b_s100000/manifest.json",
+      "dataset_stats": "checkpoints/joint2b_s100000/dataset_stats.json",
+      "inference": {
+        "steps": 10,
+        "shift": 1,
+        "horizon": 32,
+        "replan": 24,
+        "history_stride": 25,
+        "seed": 1
+      }
+    },
+    "libero_video10k_action30k": {
+      "video_checkpoint": "checkpoints/libero/video_step010000.pt",
+      "action_checkpoint": "checkpoints/libero/action_step030000.pt",
+      "manifest": "checkpoints/libero/manifest.json",
+      "dataset_stats": "checkpoints/libero/dataset_stats.json",
+      "benchmarks": [
+        "LIBERO",
+        "LIBERO-OOD",
+        "LIBERO-PRO"
+      ],
+      "inference": {
+        "action_shift": 5,
+        "euler_steps": 10,
+        "action_horizon": 32,
+        "execute_actions": 10,
+        "tokenizer_max_len": 128,
+        "normalization": "min/max"
+      }
+    }
+  }
+}

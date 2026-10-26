@@ -1,0 +1,24 @@
+diff --git a/src/vpp2/trainer.py b/src/vpp2/trainer.py
+index ca799a7..3b2573a 100644
+--- a/src/vpp2/trainer.py
++++ b/src/vpp2/trainer.py
+@@ -1053,7 +1053,8 @@ class JointTrainer:
+                             description += "action_lr=%.2e " % current_action_lr
+                         description += "speed=%.2f step/s, %.2f samples/s eta=%s" % (
+                             steps_per_sec,
+-                            steps_per_sec * self.batch_size * self.accelerator.num_processes,
++                            steps_per_sec * self.batch_size * self.accelerator.num_processes
++                            * self.gradient_accumulation_steps,
+                             eta_str,
+                         )
+                         logger.info(description)
+@@ -1063,7 +1064,8 @@ class JointTrainer:
+                             "performance/steps_per_sec": steps_per_sec,
+                             "performance/samples_per_sec": steps_per_sec
+                             * self.batch_size
+-                            * self.accelerator.num_processes,
++                            * self.accelerator.num_processes
++                            * self.gradient_accumulation_steps,
+                         }
+                         if self._uses_video_action_lr_groups():
+                             wandb_payload["train/video_lr"] = current_lr

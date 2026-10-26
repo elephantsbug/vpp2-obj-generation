@@ -1,0 +1,84 @@
+当前prompt来源：runs/prompt_obj_chronological_128_v1/exports/paired_training.jsonl（2395条未划分的总目录）。
+实际训练/测试入口为下方冻结的train.jsonl/test.jsonl，不能用上面的未划分总目录启动训练。
+该版本含obj未来视频前缀并按时序组织，完整文本含特殊token最长120；使用其tokenizer快照计算text embedding。
+data目录原paired_*.jsonl仍保留旧长prompt，作为转换时的历史配对。
+
+RGB 条件 -> video_object_full 物体视频：数据约定
+
+输入：全景 observer/ego RGB 的 episode 首帧与历史；如使用当前观测分支，该帧也来自 RGB。
+输出与监督：对应 observer/ego 的 video_object_full，保留源黑背景与物体 RGB。
+两者均左 observer 224x224、右 ego 224x224，总计448x224，不翻转、不裁剪。
+
+转换命令：
+  bash scripts/convert_observer_ego_obj_full.sh --dry-run
+  bash scripts/convert_observer_ego_obj_full.sh --workers 16
+
+输出目录：data/robotwin_observer_ego_obj_full_vpp2/
+  videos/<task>/<episode>.mp4       obj 监督视频
+  images/<task>/<episode>.png       obj 首帧，仅用于目标检查，不是 RGB 条件图
+  timestamps/<task>/<episode>.csv   原始仿真时间戳
+  records/<task>/<episode>.json     双视角来源、RGB引用、哈希和对齐校验
+  manifest.jsonl                   转换成功记录
+  paired_all.jsonl                 全量 RGB / obj / prompt 配对
+  paired_no_flags.jsonl            去除未解决 prompt 标记的配对
+  paired_needs_review.jsonl        prompt 待复核配对
+  summary.json                     数量、帧数、失败和配置
+
+训练/测试划分已完成（用户确认90%/10%，固定seed=42，按task分层、按完整episode隔离）：
+  data/robotwin_observer_ego_obj_splits_v1/train.jsonl                   2155集
+  data/robotwin_observer_ego_obj_splits_v1/test.jsonl                     240集
+  data/robotwin_observer_ego_obj_splits_v1/excluded_prompt_review.jsonl   105集
+  data/robotwin_observer_ego_obj_splits_v1/summary.json                  来源哈希、每task数量、划分规则与输出哈希
+两个集合都覆盖全部50个task。这是在相同任务上的新episode评估，不是未见任务评估。
+训练仅从train.jsonl读取，测试集不参与梯度更新或拟合数据统计；同一episode的所有视角、帧和窗口保持同一归属。
+105集只从训练/测试名单排除，保留原始媒体与prompt，供以后复核；不要直接用paired_all或paired_no_flags启动训练。
+train/test行保留原paired字段，并补充dedup_index_path、dedup_index_sha256、source_frame_count、deduplicated_frame_count与sampling_index_space。
+划分依据整集而非抽取后的窗口；每task测试数量按最大余数分配，总计240集，任务内用seed=42的稳定SHA256排序选择。
+原始划分复现/检查命令：python3 scripts/split_obj_video_dataset.py --test-fraction 0.10 --seed 42 --dry-run。该命令仍引用历史长prompt。
+实际输出默认拒绝覆盖已有目录；需要重新生成时使用新的--output-root，并明确更新训练使用的版本。
+
+当前prompt/embedding刷新：scripts/refresh_obj_split_prompts.py（默认只检查；--commit要求完整的新缓存）。
+刷新保持原episode归属、行顺序、媒体路径与去重字段，旧清单及配置备份于：
+  data/robotwin_observer_ego_obj_splits_v1/revisions/before_chronological_128_20261019/
+文本缓存：data/text_embeddings/prompt_obj_chronological_128_v1_20261019/
+  embeddings/<prompt原始UTF-8文本SHA256>.pt
+  index.jsonl、cache_contract.json、summary.json、status.json
+2395条prompt共1382种不同文本；相同文本共用冻结UMT5编码结果，不参与任何模型训练。
+每个PT包含context [128,4096] bfloat16、真实padding mask [128] bool、input_ids与来源哈希。
+train/test通过text_embedding_path引用PT，同时记录prompt哈希、文件哈希、缓存版本与有效token数量。
+完整prompt只编码一次，不附加旧视角后缀、重复前缀或@@images路径；不复用旧长prompt缓存。
+生成脚本为scripts/cache_obj_prompt_embeddings.py，使用env_train.sh与CUDA_VISIBLE_DEVICES=4。
+status=complete要求全部缓存逐项通过token、mask、shape、dtype、有限值与哈希检查；最终清单验证见splits_v1/validation.json。
+
+配对关键字段：
+  condition_video_path                  已转换的全景 RGB 视频，历史从此读取
+  condition_episode_first_frame_path    全景 RGB episode 首帧
+  target_video_path                     obj_full 预测监督视频
+  target_first_frame_path               obj_full 首帧，不能作为全景条件
+  prompt                               先前依据全景视频审阅的英文指令
+  prompt_review_flags                   保留之前的105条待复核问题
+
+全量转换逐帧解码两路 obj，核对相对PTS、两路仿真时间戳、RGB/obj帧数与FPS、原相机尺寸。
+RGB引用文件按既有转换记录检查内容哈希。源文件在转换前后检查哈希，期间发生变化则拒绝。
+像素转换复用现有VPP2 training_exact tensor bilinear antialias=True；MP4仍是libx264 CRF20有损编码，首帧PNG为编码前像素。
+使用独立内容标记与输出锁，防止覆盖/混用全景转换目录。续跑会验证已有输出后跳过。
+按task或limit重跑会把汇总索引改为该次选中范围；全量索引应使用全量命令重新汇总。
+
+第一版训练接入已实现：src/vpp2_obj/；配置configs/obj_video_baseline_v1.yaml，完整说明docs/obj_video_baseline_v1.md。
+本地wan21.py已支持分开的condition_video历史与condition_observation_video观测，但默认无独立条件时会取目标首帧。
+用户选定第一版保留原recipe的condition_latent_loss_weight=1.0和原loss归一化：RGB前缀重建作为辅助目标，未来段使用obj视频监督。
+训练序列为9帧全景RGB前缀+16帧obj未来，共25帧；当前帧已包含在9帧条件中。
+推理沿用原recipe对全部7个latent位置去噪，第一版不新增前缀clamp；完整解码25帧后只导出[9:25]共16帧物体未来。
+已分别记录loss_rgb_prefix、loss_obj_future和原总loss_video，以独立评估物体未来预测；原总loss的归一化不变。
+仅把video_path换成obj路径会让条件域或损失目标不符合本任务。
+已确认采样窗口（s为去重后的当前帧序号）：
+  9帧RGB条件 = I_0 + [I_{s-210}, I_{s-180}, I_{s-150}, I_{s-120}, I_{s-90}, I_{s-60}, I_{s-30}] + I_s。
+  16帧obj未来 = [O_{s+5}, O_{s+10}, ..., O_{s+80}]。
+历史是7帧过去帧，固定stride=30；另加episode首帧和当前帧，总计9帧，不随机改变stride或做时间抖动。
+注意上游condition_history_frames字段包含当前帧，所以应设为8，并启用condition_include_episode_first；不能把该上游字段直接设为7。
+预测固定stride=5，共16帧。先在去重序列上采样，再通过同一source_frame_indices映射回RGB/obj的原始MP4帧序号。
+去重只删除相同仿真时间戳的后续帧，保留每个时刻第一帧；保留正的短时间间隔，不建立25/30Hz均匀网格。
+210个保留帧间隔不保证严格7秒；MP4标注30fps是编码播放节奏，实际仿真跨度应从CSV计算。
+上述窗口已接入训练采样器：历史负索引用首帧补齐并标记padding；训练仅采样未来16帧完整存在的窗口。真实冻结VAE单窗口检查确认25帧对应7个latent、9帧条件对应3个latent，两次编码的前3个latent差为0。完整14B训练/推理、多卡运行和恢复仍未验证，正式训练尚未启动。
+当前转换保持原编码帧率与全部帧，并另存仿真时间戳，没有做训练抽帧或FPS重采样。
+训练计划使用H200 4-7；此转换使用CPU，不启动训练。

@@ -1,0 +1,87 @@
+Given the initial composed image and the task instruction below, write one
+detailed English instruction describing the requested robot manipulation
+and its intended completed result. Follow every rule below.
+
+IMAGE LAYOUT AND ARM IDENTITY
+The LEFT HALF of the whole image is the observer MAIN view. The RIGHT HALF
+is the robot ego view. They show the same robot and the same physical objects.
+Do not count repeated views as additional objects or arms.
+
+The observer MAIN view has this fixed arm mapping:
+- LEFT side WITHIN the observer panel = the robot's actual RIGHT arm.
+- RIGHT side WITHIN the observer panel = the robot's actual LEFT arm.
+The words "right robot gripper" and "left robot gripper" in your output must
+refer to actual arm identity, using this mapping.
+
+Use ONLY the observer MAIN view for deciding which arm is near an object.
+The ego view helps recognize objects and tools, but its horizontal object
+positions MUST NOT determine arm assignment. The two views can show an
+object on opposite sides. Do not let the ego panel override the observer.
+When no arm is specified, use the arm nearest the object in the observer
+view: an object on the observer-left is normally reached by the actual
+RIGHT arm; an object on the observer-right by the actual LEFT arm.
+For two independent objects, assign each to the nearby arm in the observer
+view. The order in which objects are listed in the task does not assign arms.
+
+Any arm explicitly specified by the task takes precedence over proximity:
+"use the left arm" means the actual LEFT arm, seen on observer-right.
+This mapping applies only to arm identity. Preserve task-specified object
+relationships and directions, such as "right of", "left", and "forward".
+Do not reverse them or invent a reference frame for an ambiguous direction.
+
+TASK CONTENT
+Use the image to understand the initial scene and the task to determine
+the required actions and final result. Preserve every requested tool,
+grasping part, manipulation method, target, destination, action order,
+simultaneity, orientation, and final state.
+If the task specifies a grip/handle/head, explicitly state grasping that
+part; naming only the whole object is insufficient.
+For a handover, describe completed transfer and receiving, not merely
+approaching the other arm or opening a gripper to receive.
+If two objects must be lifted or placed together, preserve that requirement.
+
+Do not add unsupported attributes, contact points, extra actions, or final
+arrangements. Do not invent where an object is put after a handover unless
+the task specifies it. Do not add camera motion. Omit uncertain optional
+visual details, but never omit requirements explicitly stated in the task.
+
+TWO ARM CLAUSES
+First determine the role of EACH arm over the ENTIRE task. Then write:
+The right robot gripper <all right-arm actions and result>, while the left robot gripper <all left-arm actions and result>.
+
+Describe actual RIGHT first, then actual LEFT: this is left-to-right order
+within the observer panel. Every action by an arm must be in that arm's
+own clause. Do not put a right-arm action into the left-arm clause or vice
+versa. Mentioning the other arm as the source/recipient of an object is OK.
+
+Use exactly "keeps static" ONLY if the arm has NO role anywhere in the
+entire requested task. An arm that holds, supports, receives, transfers,
+or later places an object is active and MUST NOT be labeled "keeps static".
+If an arm is inactive, its complete clause is simply:
+"The right robot gripper keeps static" or "the left robot gripper keeps static".
+Do not append the other arm's remaining actions to an inactive arm's clause.
+
+For a transfer from actual left to actual right, the RIGHT-arm clause must
+describe receiving from the left gripper and any later action, while the
+LEFT-arm clause describes first grasping and then passing to the right
+gripper. Neither arm keeps static. Use "first", "then", "after receiving",
+or similar wording when needed to preserve the true sequence, even though
+the receiving arm is described first. The connector ", while" is required
+for the clause structure; it must not turn sequential actions into
+simultaneous ones.
+
+If the robot genuinely has only one arm, describe that arm alone. Do not
+treat a partly occluded arm as nonexistent. This dataset normally has two.
+
+OUTPUT
+Return only one line of English text, with no explanation, heading, quotes,
+JSON, image path, or "@@" separator. Use TWO sentences:
+1. The two arm clauses, joined by ", while" and ending with a PERIOD.
+2. This exact final sentence:
+This is a composed robot video with the observer view on the left and the robot ego view on the right.
+
+Before returning the line, check arm-object assignments against ONLY the
+observer panel, check that neither participating arm is called static,
+and check that every explicit task requirement appears in the result.
+
+Task instruction: {task_instruction}

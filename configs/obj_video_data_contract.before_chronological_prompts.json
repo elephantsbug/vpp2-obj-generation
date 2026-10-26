@@ -1,0 +1,102 @@
+{
+  "status": "data_contract_only; training loader/model adapter not yet implemented",
+  "condition": {
+    "source_kind": "video",
+    "content": "full-scene RGB",
+    "episode_first_frame_index": 0,
+    "history": "RGB frames at or before the prediction anchor; never future frames",
+    "current_observation": "full-scene RGB when required by the history-conditioned architecture",
+    "root": "/data2/niurc/vpp2-obj-generation/data/robotwin_observer_ego_vpp2"
+  },
+  "target": {
+    "source_kind": "video_object_full",
+    "content": "object RGB on source black background",
+    "root": "/data2/niurc/vpp2-obj-generation/data/robotwin_observer_ego_obj_full_vpp2",
+    "supervision": "obj prediction segment only; RGB condition-prefix loss weight must be zero if a prefix is retained"
+  },
+  "geometry": {
+    "view_order": [
+      "observer",
+      "ego"
+    ],
+    "view_size_wh": [
+      224,
+      224
+    ],
+    "video_size_wh": [
+      448,
+      224
+    ],
+    "crop": false,
+    "flip": false
+  },
+  "pairing": {
+    "key": [
+      "task",
+      "episode",
+      "frame_index"
+    ],
+    "simulation_timestamps": "verified identical RGB/obj and observer/ego",
+    "encoded_cadence": "preserved, no resampling during conversion"
+  },
+  "manifests": {
+    "all": "/data2/niurc/vpp2-obj-generation/data/robotwin_observer_ego_obj_full_vpp2/paired_all.jsonl",
+    "without_unresolved_prompt_flags": "/data2/niurc/vpp2-obj-generation/data/robotwin_observer_ego_obj_full_vpp2/paired_no_flags.jsonl",
+    "needs_prompt_review": "/data2/niurc/vpp2-obj-generation/data/robotwin_observer_ego_obj_full_vpp2/paired_needs_review.jsonl",
+    "train": "/data2/niurc/vpp2-obj-generation/data/robotwin_observer_ego_obj_splits_v1/train.jsonl",
+    "test": "/data2/niurc/vpp2-obj-generation/data/robotwin_observer_ego_obj_splits_v1/test.jsonl",
+    "excluded_from_train_and_test": "/data2/niurc/vpp2-obj-generation/data/robotwin_observer_ego_obj_splits_v1/excluded_prompt_review.jsonl"
+  },
+  "dataset_split": {
+    "status": "created; training loader not yet connected",
+    "unit": ["task", "episode"],
+    "stratify_by": "task",
+    "seed": 42,
+    "requested_train_fraction": 0.9,
+    "requested_test_fraction": 0.1,
+    "train_episodes": 2155,
+    "test_episodes": 240,
+    "excluded_prompt_review_episodes": 105,
+    "all_tasks_in_both_splits": true,
+    "evaluation_scope": "Held-out episodes of the same 50 tasks.",
+    "summary_path": "/data2/niurc/vpp2-obj-generation/data/robotwin_observer_ego_obj_splits_v1/summary.json",
+    "training_rule": "Use manifests.train for optimization and fitted dataset statistics; keep manifests.test held out. All frames/windows/cameras of an episode inherit its split. Do not train from the unsplit all/without_unresolved_prompt_flags manifests.",
+    "dedup_rule": "Each train/test row supplies dedup_index_path and its SHA256; sample in deduplicated_frame_order, then decode the shared source_frame_indices from the original RGB and object MP4s."
+  },
+  "training_window": {
+    "index_space": "deduplicated_frame_order",
+    "dedup_policy": "equal_timestamp_keep_first_v1",
+    "dedup_root": "/data2/niurc/vpp2-obj-generation/data/robotwin_observer_ego_dedup_index_v1",
+    "history_stride": 30,
+    "history_length": 7,
+    "past_history_offsets": [-210, -180, -150, -120, -90, -60, -30],
+    "include_episode_first_frame": true,
+    "include_current_frame": true,
+    "condition_rgb_frames": 9,
+    "upstream_condition_history_frames": 8,
+    "upstream_condition_history_frames_note": "The upstream field includes the current frame: seven past frames plus current. The episode first frame is added separately.",
+    "condition_order": ["episode_first", "seven_past_frames_oldest_first", "current"],
+    "prediction_stride": 5,
+    "prediction_length": 16,
+    "prediction_offsets": [5, 10, 15, 20, 25, 30, 35, 40, 45, 50, 55, 60, 65, 70, 75, 80],
+    "random_stride_or_jitter": false,
+    "uniform_simulation_cadence": false,
+    "boundary_policy": "To be specified with padding/masks when implementing the training adapter.",
+    "note": "User-confirmed window: I_0 plus I_[s-210:s:30] (including I_s), followed by O_[s+5:s+80:5]. Map all sampled deduplicated positions through the same source_frame_indices before decoding RGB/obj. Seven past frames plus current span 210 retained-frame intervals; this is not exactly seven simulation seconds. This is a data contract, not an implemented sampler."
+  },
+  "implementation_checks_required": [
+    "Load the frozen train/test split manifests and preserve episode isolation when sampling windows.",
+    "Read RGB conditions and obj targets from separate paired paths.",
+    "Do not default to target obj first frame as the RGB condition.",
+    "Match history/current-observation latent placement at training and inference.",
+    "Exclude RGB prefix from obj prediction loss and from exported obj predictions.",
+    "Ensure VAE temporal indexing and padding masks align with the future obj segment; use a tiny train/infer batch before full training."
+  ],
+  "planned_training_gpu_ids": [
+    4,
+    5,
+    6,
+    7
+  ],
+  "training_started": false
+}

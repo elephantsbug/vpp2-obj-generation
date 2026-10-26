@@ -1,0 +1,412 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>VPP2 · 视频 Prompt 复核</title>
+  <style>
+    :root { color-scheme: light; --ink:#152338; --muted:#59687b; --line:#d9e1eb; --bg:#f4f7fb; --blue:#1e55ac; --soft:#eaf1ff; --danger:#a32b25; }
+    * { box-sizing:border-box; }
+    body { margin:0; font:14px/1.6 system-ui,-apple-system,"Segoe UI","Microsoft YaHei",sans-serif; color:var(--ink); background:var(--bg); }
+    button,input,select,textarea { font:inherit; }
+    button,select,input,textarea { border:1px solid var(--line); border-radius:7px; background:#fff; color:var(--ink); }
+    button { padding:7px 12px; cursor:pointer; }
+    button:hover { background:var(--soft); border-color:#9fb7df; }
+    button:disabled { opacity:.45; cursor:default; }
+    :focus-visible { outline:3px solid #8cb6fb; outline-offset:2px; }
+    a { color:var(--blue); text-underline-offset:3px; }
+    input,select { width:100%; min-height:37px; padding:6px 9px; }
+    textarea { width:100%; padding:10px; resize:vertical; min-height:96px; line-height:1.65; }
+    h1,h2,h3,p { margin:0; }
+    h1 { font-size:21px; }
+    h2 { font-size:19px; overflow-wrap:anywhere; }
+    h3 { font-size:14px; margin-bottom:6px; }
+    label { display:block; font-size:13px; font-weight:600; }
+    header { padding:20px 24px 15px; background:white; border-bottom:1px solid var(--line); }
+    .headrow,.toolbar,.row { display:flex; align-items:center; gap:10px; flex-wrap:wrap; }
+    .headrow { justify-content:space-between; }
+    .subtle { color:var(--muted); font-size:12px; }
+    #summary { margin-top:5px; }
+    .notice { margin-top:12px; padding:10px 13px; border:1px solid #c8d9f5; border-radius:8px; background:#f1f6ff; }
+    .notice strong { color:#153d7b; }
+    #storage-status { margin-top:9px; font-size:12px; color:var(--muted); }
+    #storage-status.warning { color:var(--danger); font-weight:600; }
+    #message { min-height:24px; margin-top:5px; color:#175e3c; overflow-wrap:anywhere; }
+    #message.error { color:var(--danger); }
+    main { display:grid; grid-template-columns:330px minmax(0,1fr); max-width:1640px; margin:auto; align-items:start; }
+    aside { height:calc(100vh - 280px); min-height:570px; position:sticky; top:0; display:flex; flex-direction:column; border-right:1px solid var(--line); }
+    .filters { padding:16px; border-bottom:1px solid var(--line); }
+    .filtergrid { display:grid; grid-template-columns:1fr 1fr; gap:9px; margin:9px 0; }
+    .check { display:flex; align-items:center; gap:7px; font-weight:400; }
+    .check input { min-height:0; width:16px; height:16px; }
+    #list-count { margin-top:9px; }
+    #item-list { overflow-y:auto; flex:1; padding:9px; }
+    .item { display:block; width:100%; text-align:left; margin-bottom:7px; background:#fff; padding:10px; }
+    .item.selected { border-color:var(--blue); box-shadow:inset 3px 0 0 var(--blue); background:#edf3ff; }
+    .item-task { font-weight:650; overflow-wrap:anywhere; }
+    .item-meta { color:var(--muted); font-size:12px; }
+    .item-tags { display:flex; flex-wrap:wrap; gap:4px; margin-top:5px; }
+    .tag { display:inline-block; padding:1px 6px; border-radius:4px; background:#eef1f6; font-size:11px; line-height:1.65; }
+    .priority-P1 { background:#ffeadf; color:#8c3815; }
+    .priority-P2 { background:#fff3cf; color:#755600; }
+    .priority-P3 { background:#e7efff; color:#214d93; }
+    .priority-P4 { background:#ebedf0; color:#5b6370; }
+    .status-pass { color:#236742; background:#e5f4eb; }
+    .content { padding:18px 24px 32px; min-width:0; }
+    .detail-head { display:flex; justify-content:space-between; gap:12px; flex-wrap:wrap; margin-bottom:14px; }
+    .detail-head .toolbar { align-content:flex-start; }
+    #position { color:var(--muted); font-size:12px; margin:4px 0; }
+    .media { display:grid; grid-template-columns:minmax(0,1.5fr) minmax(220px,1fr); gap:14px; align-items:start; }
+    .panel { padding:14px; background:#fff; border:1px solid var(--line); border-radius:9px; margin-bottom:14px; }
+    video,img { display:block; width:100%; background:#10141d; border-radius:6px; }
+    video { aspect-ratio:2/1; object-fit:contain; }
+    img { aspect-ratio:2/1; object-fit:contain; }
+    .media .panel { min-width:0; }
+    .asset-error { color:var(--danger); font-size:12px; margin-top:6px; }
+    .media-links { margin-top:6px; font-size:12px; display:flex; gap:12px; flex-wrap:wrap; }
+    .textblock { white-space:pre-wrap; overflow-wrap:anywhere; line-height:1.75; }
+    #caption.empty { color:var(--danger); }
+    #priority-reason { font-size:13px; color:var(--muted); margin-top:7px; }
+    #issue-labels { display:flex; gap:6px; flex-wrap:wrap; }
+    details { margin-top:8px; }
+    summary { cursor:pointer; color:var(--blue); }
+    #flags { margin:7px 0 0; padding-left:22px; overflow-wrap:anywhere; font-size:12px; }
+    .checklist { padding-left:21px; margin:5px 0 0; font-size:13px; }
+    .checklist li { margin:4px 0; }
+    .editgrid { display:grid; grid-template-columns:220px minmax(0,1fr); gap:14px; align-items:start; }
+    #decision-help { margin-top:6px; }
+    #notes { min-height:65px; }
+    .edit-field { margin-top:12px; }
+    .edit-field:first-child { margin-top:0; }
+    .path { overflow-wrap:anywhere; font-family:ui-monospace,monospace; font-size:11px; }
+    #empty-state { padding:45px 15px; color:var(--muted); text-align:center; }
+    .hidden,[hidden] { display:none !important; }
+    footer { padding-top:7px; color:var(--muted); font-size:12px; }
+    @media(max-width:1000px) { main { grid-template-columns:280px minmax(0,1fr); } .media { grid-template-columns:1fr; } .editgrid { grid-template-columns:1fr; } .content { padding:16px; } }
+    @media(max-width:700px) { header { padding:15px; } main { display:block; } aside { position:static; height:390px; min-height:0; border-right:0; border-bottom:1px solid var(--line); } .content { padding:12px; } .toolbar button { font-size:12px; padding:6px 9px; } }
+  </style>
+</head>
+<body>
+  <header>
+    <div class="headrow">
+      <div><h1>VPP2 · 视频 Prompt 复核</h1><p id="summary" class="subtle"></p></div>
+      <div class="toolbar">
+        <button id="export-csv" type="button">导出审核 CSV</button>
+        <button id="export-json" type="button">导出进度 JSON</button>
+        <button id="import-json" type="button">导入进度 JSON</button>
+        <input id="import-file" type="file" accept="application/json,.json" hidden>
+      </div>
+    </div>
+    <div class="notice"><strong>固定映射：左侧 observer 画面的左边＝实际右臂，画面的右边＝实际左臂。</strong>右侧 ego 是同一场景。英文先写实际右臂，再用 <code>, while</code> 接实际左臂；不动的臂写 <code>keeps static</code>。自动检查的提示不等于错误结论。</div>
+    <p id="storage-status" role="status"></p>
+    <p id="message" role="status" aria-live="polite"></p>
+  </header>
+  <main>
+    <aside aria-label="审核清单">
+      <div class="filters">
+        <label for="search">搜索任务、Episode 或指令</label>
+        <input id="search" type="search" placeholder="例如 handover 或 episode_0000008">
+        <div class="filtergrid">
+          <label>任务<select id="task-filter"><option value="">全部任务</option></select></label>
+          <label>问题类别<select id="issue-filter"><option value="">全部类别</option></select></label>
+          <label>优先级<select id="priority-filter"><option value="">全部优先级</option><option value="P1">P1</option><option value="P2">P2</option><option value="P3">P3</option><option value="P4">P4</option></select></label>
+          <label>审核状态<select id="status-filter"><option value="">全部状态</option><option>待复核</option><option>通过</option><option>修改后通过</option><option>排除</option><option>暂缓</option></select></label>
+        </div>
+        <label class="check"><input id="include-empty" type="checkbox">显示空文本条目（默认暂缓）</label>
+        <p id="list-count" class="subtle"></p>
+      </div>
+      <nav id="item-list" aria-label="视频条目"></nav>
+    </aside>
+    <section class="content">
+      <div id="empty-state" hidden>当前筛选没有条目，请调整筛选条件。</div>
+      <article id="detail" hidden>
+        <div class="detail-head">
+          <div><h2 id="item-title"></h2><p id="position"></p><div id="issue-labels"></div><p id="priority-reason"></p></div>
+          <div class="toolbar"><button id="previous" type="button">← 上一条</button><button id="next" type="button">下一条 →</button></div>
+        </div>
+        <div class="media">
+          <div class="panel">
+            <h3>完整视频：左 observer ／右 ego</h3>
+            <video id="video" controls preload="none" playsinline></video>
+            <p id="video-error" class="asset-error" hidden>浏览器未能播放视频。可点击“打开视频”或使用下方本地路径在播放器中查看；若文件不在当前机器，请先复制媒体文件或使用目录 HTTP 服务。</p>
+            <div class="media-links"><a id="video-link" target="_blank" rel="noopener">打开视频</a><a id="record-link" target="_blank" rel="noopener">查看原始生成记录</a></div>
+          </div>
+          <div class="panel">
+            <h3>生成时使用的首帧</h3>
+            <img id="image" alt="当前 Episode 首帧：左 observer，右 ego">
+            <p id="image-error" class="asset-error" hidden>首帧加载失败，请检查审核目录中的媒体路径。</p>
+            <div class="media-links"><a id="image-link" target="_blank" rel="noopener">打开首帧原图</a></div>
+          </div>
+        </div>
+        <div class="panel"><h3>原任务指令</h3><p id="original" class="textblock"></p></div>
+        <div class="panel"><h3>候选扩写 Prompt</h3><p id="caption" class="textblock"></p><details><summary>查看自动检查的原始提示</summary><ul id="flags"></ul></details></div>
+        <details class="panel" open>
+          <summary>逐条复核要点</summary>
+          <ol class="checklist">
+            <li>先看原任务和首帧，再播放完整视频确认参与臂。按实际右臂→实际左臂输出；机械臂身份保持固定，运动或交叉后不按画面位置重新命名。接物的臂也算活动臂，不能写 <code>keeps static</code>。</li>
+            <li>核对工具、抓握部位、操作方式和动作顺序；双臂同时操作、交接物体、多物体任务尤其要查漏。</li>
+            <li>核对目标、目的地、朝向和完成状态。保留原任务的空间方向，不因 observer 镜像而改写物体的任务方向。</li>
+            <li>视频用于核验执行情况；新增描述仍须由首帧和原任务支持，不能把后续画面透露的额外细节写入扩写。信息冲突或无法确认时选“暂缓”并记原因。</li>
+            <li>检查英文格式：单行、两臂用 <code>, while</code> 连接、不把 ego 当成额外机械臂；结尾为 <code>This is a composed robot video with the observer view on the left and the robot ego view on the right.</code></li>
+          </ol>
+        </details>
+        <div class="panel">
+          <h3>保存审核结论</h3>
+          <div class="editgrid">
+            <div>
+              <label for="decision">审核状态</label>
+              <select id="decision"><option>待复核</option><option>通过</option><option>修改后通过</option><option>排除</option><option>暂缓</option></select>
+              <p id="decision-help" class="subtle"></p>
+            </div>
+            <div>
+              <div class="edit-field"><label for="corrected">修正后的完整 Prompt</label><textarea id="corrected" placeholder="仅在需要修改时填写；粘贴完整单行英文 Prompt，不要添加 @@图片路径。"></textarea></div>
+              <div class="edit-field"><label for="notes">复核备注</label><textarea id="notes" placeholder="例如：目的地同义改写，语义完整；或：交接的接收臂写成静止，需要修改。"></textarea></div>
+              <p id="saved-at" class="subtle"></p>
+            </div>
+          </div>
+        </div>
+        <details class="panel"><summary>本地文件路径</summary><p id="video-path" class="path"></p><p id="image-path" class="path"></p><p id="record-path" class="path"></p><p id="observer-path" class="path"></p><p id="ego-path" class="path"></p></details>
+        <footer>页面不修改原始生成结果，也不会自动批准任何条目。浏览器暂存仅保存在当前浏览器，请定期导出 JSON 备份；CSV 便于筛选和汇总，JSON 可恢复进度。</footer>
+      </article>
+    </section>
+  </main>
+  <script type="application/json" id="review-data">__REVIEW_DATA_JSON__</script>
+  <script>
+  (() => {
+    'use strict';
+    const $ = id => document.getElementById(id);
+    const DATA = JSON.parse($('review-data').textContent);
+    const ITEMS = DATA.items;
+    const BY_ID = new Map(ITEMS.map(item => [item.id, item]));
+    const STATUSES = new Set(['待复核', '通过', '修改后通过', '排除', '暂缓']);
+    const STORAGE_KEY = 'vpp2_review_v1:' + DATA.run_id;
+    const decisions = new Map();
+    let filtered = [], selectedId = null, storageWorks = true, saveTimer = null;
+    const str = value => typeof value === 'string' ? value : '';
+    const array = value => Array.isArray(value) ? value : [];
+    const now = () => new Date().toISOString();
+    function message(text, isError = false) { $('message').textContent = text; $('message').classList.toggle('error', isError); }
+    function initialDecision(item) {
+      const declared = str(item.decision);
+      return {id:item.id, decision:STATUSES.has(declared) ? declared : (declared.startsWith('暂缓') || !item.has_caption ? '暂缓' : '待复核'), corrected_prompt:str(item.corrected_prompt), notes:str(item.notes), reviewed_at:''};
+    }
+    ITEMS.forEach(item => decisions.set(item.id, initialDecision(item)));
+    function validateDecision(raw) {
+      if (!raw || typeof raw !== 'object' || Array.isArray(raw)) throw new Error('审核记录格式错误。');
+      if (typeof raw.id !== 'string' || !BY_ID.has(raw.id)) throw new Error('发现不属于当前清单的 ID：' + String(raw.id));
+      if (!STATUSES.has(raw.decision)) throw new Error('审核状态无效：' + raw.id);
+      if (typeof raw.corrected_prompt !== 'string' || typeof raw.notes !== 'string') throw new Error('修正文本或备注格式错误：' + raw.id);
+      if (raw.reviewed_at !== undefined && typeof raw.reviewed_at !== 'string') throw new Error('审核时间格式错误：' + raw.id);
+      if (raw.decision === '通过' && !BY_ID.get(raw.id).has_caption) throw new Error('空文本条目不能直接通过：' + raw.id);
+      if (raw.decision === '修改后通过' && !raw.corrected_prompt.trim()) throw new Error('修改后通过必须填写完整 Prompt：' + raw.id);
+      return {id:raw.id, decision:raw.decision, corrected_prompt:raw.corrected_prompt, notes:raw.notes, reviewed_at:raw.reviewed_at || ''};
+    }
+    function validatePayload(payload) {
+      if (!payload || payload.schema_version !== 1 || payload.run_id !== DATA.run_id || !Array.isArray(payload.decisions)) throw new Error('只能导入本页面导出的同一 run_id 的审核 JSON。');
+      const seen = new Set();
+      return payload.decisions.map(raw => {
+        const record = validateDecision(raw);
+        if (seen.has(record.id)) throw new Error('JSON 含重复 ID：' + record.id);
+        seen.add(record.id);
+        return record;
+      });
+    }
+    function payload() { return {schema_version:1, run_id:DATA.run_id, exported_at:now(), decisions:Array.from(decisions.values())}; }
+    function updateStorageStatus() {
+      $('storage-status').textContent = storageWorks
+        ? '自动暂存已启用：仅限当前浏览器和本地页面位置。请定期导出进度 JSON，换浏览器或移动目录后可导入恢复。'
+        : '浏览器暂存不可用。当前修改仅保存在页面内存中；关闭或刷新前必须导出进度 JSON。';
+      $('storage-status').classList.toggle('warning', !storageWorks);
+    }
+    function persist() {
+      clearTimeout(saveTimer);
+      saveTimer = null;
+      try { localStorage.setItem(STORAGE_KEY, JSON.stringify(payload())); storageWorks = true; }
+      catch (_) { storageWorks = false; }
+      updateStorageStatus();
+    }
+    try {
+      const stored = localStorage.getItem(STORAGE_KEY);
+      if (stored) {
+        const restored = validatePayload(JSON.parse(stored));
+        restored.forEach(record => decisions.set(record.id, record));
+        message('已恢复当前浏览器保存的审核进度。');
+      }
+      const probe = STORAGE_KEY + ':probe';
+      localStorage.setItem(probe, '1'); localStorage.removeItem(probe);
+    } catch (error) {
+      storageWorks = false;
+      message('未读取浏览器暂存：' + error.message + ' 可使用导出 / 导入 JSON 保存进度。', true);
+    }
+    updateStorageStatus();
+    function addOptions(select, values) {
+      values.forEach(value => { const option = document.createElement('option'); option.value = value; option.textContent = value; select.append(option); });
+    }
+    addOptions($('task-filter'), Array.from(new Set(ITEMS.map(item => item.task))).sort());
+    addOptions($('issue-filter'), Array.from(new Set(ITEMS.flatMap(item => array(item.issue_labels)))).sort());
+    function updateSummary() {
+      let passed = 0, corrected = 0, excluded = 0, deferred = 0, pending = 0;
+      decisions.forEach(record => { if(record.decision === '通过') passed++; else if(record.decision === '修改后通过') corrected++; else if(record.decision === '排除') excluded++; else if(record.decision === '暂缓') deferred++; else pending++; });
+      const nonempty = ITEMS.filter(item => item.has_caption).length;
+      $('summary').textContent = '清单：有文本 ' + nonempty + ' 条，空文本 ' + (ITEMS.length - nonempty) + ' 条 ｜当前：待复核 ' + pending + ' · 通过 ' + passed + ' · 修改后通过 ' + corrected + ' · 排除 ' + excluded + ' · 暂缓 ' + deferred;
+    }
+    function tag(label, classes = '') {
+      const element = document.createElement('span'); element.className = 'tag ' + classes; element.textContent = label; return element;
+    }
+    function calculateFiltered() {
+      const needle = $('search').value.trim().toLowerCase();
+      filtered = ITEMS.filter(item => {
+        if (!$('include-empty').checked && !item.has_caption) return false;
+        if ($('task-filter').value && item.task !== $('task-filter').value) return false;
+        if ($('priority-filter').value && item.priority !== $('priority-filter').value) return false;
+        if ($('issue-filter').value && !array(item.issue_labels).includes($('issue-filter').value)) return false;
+        if ($('status-filter').value && decisions.get(item.id).decision !== $('status-filter').value) return false;
+        const searchable = [item.id, item.original_instruction, item.enhanced_instruction, decisions.get(item.id).notes].join(' ').toLowerCase();
+        return !needle || searchable.includes(needle);
+      });
+    }
+    function renderList() {
+      const fragment = document.createDocumentFragment();
+      filtered.forEach(item => {
+        const state = decisions.get(item.id);
+        const button = document.createElement('button'); button.type = 'button'; button.className = 'item';
+        button.classList.toggle('selected', item.id === selectedId); button.setAttribute('aria-current', item.id === selectedId ? 'true' : 'false');
+        const task = document.createElement('div'); task.className = 'item-task'; task.textContent = item.task;
+        const episode = document.createElement('div'); episode.className = 'item-meta'; episode.textContent = item.episode;
+        const tags = document.createElement('div'); tags.className = 'item-tags';
+        tags.append(tag(item.priority, 'priority-' + item.priority));
+        tags.append(tag(state.decision, state.decision.includes('通过') ? 'status-pass' : ''));
+        array(item.issue_labels).slice(0,2).forEach(label => tags.append(tag(label)));
+        button.append(task, episode, tags); button.addEventListener('click', () => selectItem(item.id)); fragment.append(button);
+      });
+      $('item-list').replaceChildren(fragment);
+      $('list-count').textContent = '当前筛选 ' + filtered.length + ' 条 / 清单 ' + ITEMS.length + ' 条';
+      updateNavigation(); updateSummary();
+    }
+    function updateNavigation() {
+      const index = filtered.findIndex(item => item.id === selectedId);
+      $('previous').disabled = index <= 0;
+      $('next').disabled = filtered.length === 0 || index === filtered.length - 1;
+      $('position').textContent = index >= 0 ? '当前筛选第 ' + (index + 1) + ' / ' + filtered.length + ' 条' : '当前条目已不满足筛选条件；点击“下一条”继续筛选中的条目。';
+    }
+    function safeRelativeURL(value) {
+      const text = str(value);
+      if (!text || /^[a-zA-Z][a-zA-Z0-9+.-]*:/.test(text) || text.startsWith('//') || /[\u0000-\u001f]/.test(text)) return '';
+      return text;
+    }
+    function setLink(id, value) {
+      const href = safeRelativeURL(value);
+      if (href) { $(id).href = href; $(id).hidden = false; } else { $(id).removeAttribute('href'); $(id).hidden = true; }
+    }
+    function updateDecisionHelp() {
+      const state = decisions.get(selectedId);
+      const help = { '待复核':'尚未作出审核结论。', '通过':'采用原候选文本；修正框中的草稿不会作为最终文本。', '修改后通过':'采用右侧修正后的完整 Prompt。', '排除':'从后续训练候选中排除此条；建议注明原因。', '暂缓':'暂不放行，等待补充确认；建议注明原因。' };
+      $('decision-help').textContent = help[state.decision];
+      $('saved-at').textContent = state.reviewed_at ? '最近修改：' + new Date(state.reviewed_at).toLocaleString('zh-CN') : '尚未手动修改。';
+    }
+    function selectItem(id) {
+      if (!BY_ID.has(id)) return;
+      selectedId = id;
+      const item = BY_ID.get(id), state = decisions.get(id);
+      $('detail').hidden = false; $('empty-state').hidden = true;
+      $('item-title').textContent = item.task + ' / ' + item.episode;
+      $('issue-labels').replaceChildren(tag(item.priority, 'priority-' + item.priority), ...array(item.issue_labels).map(label => tag(label)));
+      $('priority-reason').textContent = str(item.priority_reason);
+      $('original').textContent = str(item.original_instruction);
+      $('caption').textContent = str(item.enhanced_instruction) || '（空文本，默认暂缓）';
+      $('caption').classList.toggle('empty', !item.has_caption);
+      const flags = array(item.review_flags).map(flag => { const li = document.createElement('li'); li.textContent = String(flag); return li; });
+      $('flags').replaceChildren(...flags);
+      $('decision').value = state.decision; $('corrected').value = state.corrected_prompt; $('notes').value = state.notes;
+      $('video-error').hidden = true; $('image-error').hidden = true;
+      $('video').pause();
+      const videoURL = safeRelativeURL(item.video_url), imageURL = safeRelativeURL(item.image_url);
+      if (videoURL) { $('video').src = videoURL; } else { $('video').removeAttribute('src'); $('video-error').hidden = false; }
+      if (imageURL) { $('image').src = imageURL; $('video').poster = imageURL; } else { $('image').removeAttribute('src'); $('video').removeAttribute('poster'); $('image-error').hidden = false; }
+      $('video').load();
+      setLink('video-link', item.video_url); setLink('image-link', item.image_url); setLink('record-link', item.record_url);
+      $('video-path').textContent = '视频：' + str(item.video_path); $('image-path').textContent = '首帧：' + str(item.image_path); $('record-path').textContent = '生成记录：' + str(item.record_path);
+      $('observer-path').textContent = item.observer_video_path ? '原始 observer 视频：' + str(item.observer_video_path) : '';
+      $('ego-path').textContent = item.ego_video_path ? '原始 ego 视频：' + str(item.ego_video_path) : '';
+      updateDecisionHelp(); renderList();
+    }
+    function refilter(selectFirst = true) {
+      calculateFiltered();
+      if (selectFirst && !filtered.some(item => item.id === selectedId)) {
+        if (filtered.length) { selectItem(filtered[0].id); return; }
+        $('video').pause(); selectedId = null; $('detail').hidden = true; $('empty-state').hidden = false;
+      }
+      renderList();
+    }
+    function updateState(field, value) {
+      if (!selectedId) return;
+      const current = decisions.get(selectedId), updated = {...current, [field]:value, reviewed_at:now()};
+      if (field === 'corrected_prompt' && updated.decision === '修改后通过' && !value.trim()) {
+        updated.decision = '待复核'; $('decision').value = updated.decision;
+        message('修正 Prompt 已清空，此条已恢复为“待复核”。', true);
+      }
+      try { validateDecision(updated); }
+      catch (error) { $('decision').value = current.decision; message(error.message, true); return; }
+      decisions.set(selectedId, updated);
+      clearTimeout(saveTimer); saveTimer = setTimeout(persist, 250);
+      updateDecisionHelp(); refilter(false);
+      if (field === 'decision') message('已记录：' + selectedId + ' → ' + updated.decision + '。原始生成文件保持不变。');
+    }
+    $('decision').addEventListener('change', event => updateState('decision', event.target.value));
+    $('corrected').addEventListener('input', event => updateState('corrected_prompt', event.target.value));
+    $('notes').addEventListener('input', event => updateState('notes', event.target.value));
+    ['task-filter','issue-filter','priority-filter','status-filter','include-empty'].forEach(id => $(id).addEventListener('change', () => refilter()));
+    $('search').addEventListener('input', () => refilter());
+    function move(direction) {
+      const index = filtered.findIndex(item => item.id === selectedId);
+      const target = index < 0 ? 0 : index + direction;
+      if (target >= 0 && target < filtered.length) selectItem(filtered[target].id);
+    }
+    $('previous').addEventListener('click', () => move(-1)); $('next').addEventListener('click', () => move(1));
+    document.addEventListener('keydown', event => { if (event.altKey && (event.key === 'ArrowLeft' || event.key === 'ArrowRight')) { event.preventDefault(); move(event.key === 'ArrowRight' ? 1 : -1); } });
+    $('video').addEventListener('error', () => { $('video-error').hidden = false; });
+    $('image').addEventListener('error', () => { $('image-error').hidden = false; });
+    function download(name, content, type) {
+      const blob = new Blob([content], {type}); const url = URL.createObjectURL(blob);
+      const anchor = document.createElement('a'); anchor.href = url; anchor.download = name; document.body.append(anchor); anchor.click(); anchor.remove();
+      setTimeout(() => URL.revokeObjectURL(url), 1000);
+    }
+    const exportName = extension => 'vpp2_review_' + String(DATA.run_id).replace(/[^a-zA-Z0-9_.-]/g,'_') + '_' + new Date().toISOString().replace(/[:.]/g,'-') + '.' + extension;
+    $('export-json').addEventListener('click', () => { persist(); download(exportName('json'), JSON.stringify(payload(), null, 2) + '\n', 'application/json;charset=utf-8'); message('已导出审核进度 JSON，可在本页面导入恢复。'); });
+    function csvCell(value) {
+      let text = String(value === undefined || value === null ? '' : value);
+      if (/^[=+\-@\t\r]/.test(text)) text = "'" + text;
+      return '"' + text.replace(/"/g, '""') + '"';
+    }
+    $('export-csv').addEventListener('click', () => {
+      persist();
+      const columns = ['id','task','episode','priority','priority_reason','issue_labels','review_flags','has_caption','decision','original_instruction','enhanced_instruction','corrected_prompt','approved_prompt','notes','reviewed_at','video_path','image_path','record_path','observer_video_path','ego_video_path'];
+      const rows = [columns];
+      ITEMS.forEach(item => {
+        const state = decisions.get(item.id);
+        const merged = {...item, ...state, issue_labels:array(item.issue_labels).join(' | '), review_flags:array(item.review_flags).join(' | '), approved_prompt:state.decision === '通过' ? str(item.enhanced_instruction) : state.decision === '修改后通过' ? state.corrected_prompt.trim() : ''};
+        rows.push(columns.map(column => merged[column]));
+      });
+      download(exportName('csv'), '\ufeff' + rows.map(row => row.map(csvCell).join(',')).join('\r\n') + '\r\n', 'text/csv;charset=utf-8');
+      message('已导出全部条目的审核 CSV；只有“通过 / 修改后通过”才填写 approved_prompt。恢复页面进度请使用 JSON。');
+    });
+    $('import-json').addEventListener('click', () => $('import-file').click());
+    $('import-file').addEventListener('change', async event => {
+      const file = event.target.files[0]; if (!file) return;
+      try {
+        const restored = validatePayload(JSON.parse(await file.text()));
+        if (restored.length === 0) throw new Error('导入文件没有审核记录。');
+        if (!window.confirm('将用文件中的 ' + restored.length + ' 条记录覆盖同 ID 的当前审核进度。建议先导出当前进度。确认导入？')) return;
+        restored.forEach(record => decisions.set(record.id, record));
+        persist(); calculateFiltered();
+        if (selectedId) selectItem(selectedId); else refilter();
+        message('已导入 ' + restored.length + ' 条审核记录。原始生成结果未改动。');
+      } catch (error) { message('导入失败，当前审核进度未改动：' + error.message, true); }
+      finally { event.target.value = ''; }
+    });
+    window.addEventListener('pagehide', () => { if (saveTimer !== null) persist(); });
+    refilter();
+  })();
+  </script>
+</body>
+</html>

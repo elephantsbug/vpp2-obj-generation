@@ -1,0 +1,18 @@
+# Optional future GPU diagnostic; generating/reviewing this config does not run it.
+_base_: obj_video_baseline_v1.yaml
+output_dir: ${paths.project}/runs/obj_video_smoke_v1
+gradient_accumulation_steps: 1
+max_steps: 2
+warmup_steps: 0
+num_workers: 0
+log_every: 1
+save_every: 0
+save_final_checkpoint: false
+data:
+  train:
+    samples_per_epoch: 64
+profiling:
+  enabled: true
+  skip_steps: 0
+  collect_steps: 2
+  log_every: 1

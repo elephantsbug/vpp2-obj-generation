@@ -1,0 +1,46 @@
+{
+  "schema": "vpp2_obj.checkpoint_backup.v1",
+  "prepared_at_utc": "2026-10-26T02:55:46.468247+00:00",
+  "original_project_root": "/data2/niurc/vpp2-obj-generation",
+  "checkpoint": {
+    "path": "runs/obj_video_train_v1/checkpoints/weights/step_010000.pt",
+    "file_name": "step_010000.pt",
+    "bytes": 32789968889,
+    "sha256": "95b8cfe616e06e5456cc94f31fa0e0da880a020e1c4a81f86e3d0123af694858",
+    "format": "wan21_video_v1",
+    "step": 10000,
+    "keys": [
+      "format",
+      "dit",
+      "step"
+    ],
+    "tensor_count": 1303,
+    "dtype": "bfloat16",
+    "contains_optimizer": false
+  },
+  "upstream": {
+    "repository": "https://github.com/roboterax/video-prediction-policy-2.git",
+    "commit": "72c17acf022494ff63617be86079bb92e92f5bf8",
+    "working_source_archive": "vpp2-source.tar.gz",
+    "archive_sha256": "940db5d10c591d33a0fd40f0031b3546575d15301333532693e2164bb95ab1cd"
+  },
+  "destinations": {
+    "code_repository": "https://github.com/elephantsbug/vpp2-obj-generation.git",
+    "model_repository": "elephantsbug/vpp2-obj-generation-step10000",
+    "model_repository_type": "model",
+    "model_repository_visibility": "private"
+  },
+  "public_frozen_dependencies": {
+    "repository": "Haodong082399/VPP2",
+    "revision": "04824ddb3aae11f13db50984ed7d540c3b77dd9f"
+  },
+  "excluded": [
+    "original media and frame-index data",
+    "text embedding tensors",
+    "frozen public model weights",
+    "optimizer/scheduler/RNG training state",
+    "virtual environment",
+    "historical evaluation selections, replay records and generated outputs"
+  ],
+  "remote_upload_status_at_snapshot_creation": "pending; preparation is not remote verification"
+}

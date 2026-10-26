@@ -1,0 +1,83 @@
+{
+  "snapshot_utc": "2026-10-15T06:57:46.417739+00:00",
+  "scope": "VPP2 Stage-2 video-only post-training baseline",
+  "code_commit": "72c17acf022494ff63617be86079bb92e92f5bf8",
+  "model_repo": "Haodong082399/VPP2",
+  "model_revision": "04824ddb3aae11f13db50984ed7d540c3b77dd9f",
+  "files": [
+    {
+      "relative_path": "checkpoints/Wan2.1-I2V-14B-480P/LICENSE.txt",
+      "path": "/data2/niurc/vpp2-obj-generation/weights/checkpoints/Wan2.1-I2V-14B-480P/LICENSE.txt",
+      "expected_size": 11357,
+      "verified_complete": true
+    },
+    {
+      "relative_path": "checkpoints/Wan2.1-I2V-14B-480P/Wan2.1_VAE.pth",
+      "path": "/data2/niurc/vpp2-obj-generation/weights/checkpoints/Wan2.1-I2V-14B-480P/Wan2.1_VAE.pth",
+      "expected_size": 507609880,
+      "verified_complete": true
+    },
+    {
+      "relative_path": "checkpoints/Wan2.1-I2V-14B-480P/config.json",
+      "path": "/data2/niurc/vpp2-obj-generation/weights/checkpoints/Wan2.1-I2V-14B-480P/config.json",
+      "expected_size": 250,
+      "verified_complete": true
+    },
+    {
+      "relative_path": "checkpoints/Wan2.1-I2V-14B-480P/google/umt5-xxl/special_tokens_map.json",
+      "path": "/data2/niurc/vpp2-obj-generation/weights/checkpoints/Wan2.1-I2V-14B-480P/google/umt5-xxl/special_tokens_map.json",
+      "expected_size": 6623,
+      "verified_complete": true
+    },
+    {
+      "relative_path": "checkpoints/Wan2.1-I2V-14B-480P/google/umt5-xxl/spiece.model",
+      "path": "/data2/niurc/vpp2-obj-generation/weights/checkpoints/Wan2.1-I2V-14B-480P/google/umt5-xxl/spiece.model",
+      "expected_size": 4548313,
+      "verified_complete": true
+    },
+    {
+      "relative_path": "checkpoints/Wan2.1-I2V-14B-480P/google/umt5-xxl/tokenizer.json",
+      "path": "/data2/niurc/vpp2-obj-generation/weights/checkpoints/Wan2.1-I2V-14B-480P/google/umt5-xxl/tokenizer.json",
+      "expected_size": 16837417,
+      "verified_complete": true
+    },
+    {
+      "relative_path": "checkpoints/Wan2.1-I2V-14B-480P/google/umt5-xxl/tokenizer_config.json",
+      "path": "/data2/niurc/vpp2-obj-generation/weights/checkpoints/Wan2.1-I2V-14B-480P/google/umt5-xxl/tokenizer_config.json",
+      "expected_size": 61728,
+      "verified_complete": true
+    },
+    {
+      "relative_path": "checkpoints/Wan2.1-I2V-14B-480P/models_clip_open-clip-xlm-roberta-large-vit-huge-14.pth",
+      "path": "/data2/niurc/vpp2-obj-generation/weights/checkpoints/Wan2.1-I2V-14B-480P/models_clip_open-clip-xlm-roberta-large-vit-huge-14.pth",
+      "expected_size": 4772359047,
+      "verified_complete": true
+    },
+    {
+      "relative_path": "checkpoints/Wan2.1-I2V-14B-480P/models_t5_umt5-xxl-enc-bf16.pth",
+      "path": "/data2/niurc/vpp2-obj-generation/weights/checkpoints/Wan2.1-I2V-14B-480P/models_t5_umt5-xxl-enc-bf16.pth",
+      "expected_size": 11361920418,
+      "verified_complete": true
+    },
+    {
+      "relative_path": "checkpoints_video/vpp2-video-stage2-17f.pth",
+      "path": "/data2/niurc/vpp2-obj-generation/weights/checkpoints_video/vpp2-video-stage2-17f.pth",
+      "expected_size": 65580046353,
+      "verified_complete": false
+    },
+    {
+      "relative_path": "config.json",
+      "path": "/data2/niurc/vpp2-obj-generation/weights/config.json",
+      "expected_size": 2214,
+      "verified_complete": true
+    }
+  ],
+  "required_files": 11,
+  "verified_complete_files": 10,
+  "total_required_bytes": 82243403600,
+  "weights_complete": false,
+  "stage2_download_status_path": "/data2/niurc/vpp2-obj-generation/runs/baseline_setup_20261015/stage2_download_status.json",
+  "environment_status_path": "/data2/niurc/vpp2-obj-generation/runs/baseline_setup_20261015/environment_setup_state.json",
+  "environment_audit_path": "/data2/niurc/vpp2-obj-generation/runs/baseline_setup_20261015/environment_audit.json",
+  "training_started": false
+}

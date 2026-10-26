@@ -1,0 +1,411 @@
+{
+  "schema_version": 1,
+  "created_at": "2026-10-15T14:13:41.860604+00:00",
+  "algorithm": "task_stratified_episode_sha256_rank_largest_remainder_v1",
+  "seed": 42,
+  "requested_test_fraction": "0.10",
+  "rounding": "Global test count rounds half up; per-task counts use floor plus largest remainders, seeded tie order.",
+  "assignment": "Within each task sort by SHA256 of JSON [seed, episode, task, episode_id]; first quota entries are test.",
+  "split_unit": [
+    "task",
+    "episode"
+  ],
+  "stratification": "task",
+  "evaluation_scope": "Held-out episodes from the same tasks; not unseen-task generalization.",
+  "counts": {
+    "source": 2500,
+    "excluded_prompt_review": 105,
+    "eligible": 2395,
+    "train": 2155,
+    "test": 240,
+    "tasks": 50
+  },
+  "per_task": {
+    "adjust_bottle": {
+      "eligible": 50,
+      "train": 45,
+      "test": 5,
+      "excluded_prompt_flags": 0
+    },
+    "beat_block_hammer": {
+      "eligible": 50,
+      "train": 45,
+      "test": 5,
+      "excluded_prompt_flags": 0
+    },
+    "blocks_ranking_rgb": {
+      "eligible": 50,
+      "train": 45,
+      "test": 5,
+      "excluded_prompt_flags": 0
+    },
+    "blocks_ranking_size": {
+      "eligible": 50,
+      "train": 45,
+      "test": 5,
+      "excluded_prompt_flags": 0
+    },
+    "click_alarmclock": {
+      "eligible": 50,
+      "train": 45,
+      "test": 5,
+      "excluded_prompt_flags": 0
+    },
+    "click_bell": {
+      "eligible": 50,
+      "train": 45,
+      "test": 5,
+      "excluded_prompt_flags": 0
+    },
+    "dump_bin_bigbin": {
+      "eligible": 50,
+      "train": 45,
+      "test": 5,
+      "excluded_prompt_flags": 0
+    },
+    "grab_roller": {
+      "eligible": 50,
+      "train": 45,
+      "test": 5,
+      "excluded_prompt_flags": 0
+    },
+    "handover_block": {
+      "eligible": 50,
+      "train": 45,
+      "test": 5,
+      "excluded_prompt_flags": 0
+    },
+    "handover_mic": {
+      "eligible": 47,
+      "train": 42,
+      "test": 5,
+      "excluded_prompt_flags": 3
+    },
+    "hanging_mug": {
+      "eligible": 37,
+      "train": 33,
+      "test": 4,
+      "excluded_prompt_flags": 13
+    },
+    "lift_pot": {
+      "eligible": 50,
+      "train": 45,
+      "test": 5,
+      "excluded_prompt_flags": 0
+    },
+    "move_can_pot": {
+      "eligible": 41,
+      "train": 37,
+      "test": 4,
+      "excluded_prompt_flags": 9
+    },
+    "move_pillbottle_pad": {
+      "eligible": 45,
+      "train": 41,
+      "test": 4,
+      "excluded_prompt_flags": 5
+    },
+    "move_playingcard_away": {
+      "eligible": 45,
+      "train": 41,
+      "test": 4,
+      "excluded_prompt_flags": 5
+    },
+    "move_stapler_pad": {
+      "eligible": 48,
+      "train": 43,
+      "test": 5,
+      "excluded_prompt_flags": 2
+    },
+    "open_laptop": {
+      "eligible": 36,
+      "train": 32,
+      "test": 4,
+      "excluded_prompt_flags": 14
+    },
+    "open_microwave": {
+      "eligible": 50,
+      "train": 45,
+      "test": 5,
+      "excluded_prompt_flags": 0
+    },
+    "pick_diverse_bottles": {
+      "eligible": 48,
+      "train": 43,
+      "test": 5,
+      "excluded_prompt_flags": 2
+    },
+    "pick_dual_bottles": {
+      "eligible": 50,
+      "train": 45,
+      "test": 5,
+      "excluded_prompt_flags": 0
+    },
+    "place_a2b_left": {
+      "eligible": 50,
+      "train": 45,
+      "test": 5,
+      "excluded_prompt_flags": 0
+    },
+    "place_a2b_right": {
+      "eligible": 50,
+      "train": 45,
+      "test": 5,
+      "excluded_prompt_flags": 0
+    },
+    "place_bread_basket": {
+      "eligible": 45,
+      "train": 41,
+      "test": 4,
+      "excluded_prompt_flags": 5
+    },
+    "place_bread_skillet": {
+      "eligible": 50,
+      "train": 45,
+      "test": 5,
+      "excluded_prompt_flags": 0
+    },
+    "place_burger_fries": {
+      "eligible": 50,
+      "train": 45,
+      "test": 5,
+      "excluded_prompt_flags": 0
+    },
+    "place_can_basket": {
+      "eligible": 50,
+      "train": 45,
+      "test": 5,
+      "excluded_prompt_flags": 0
+    },
+    "place_cans_plasticbox": {
+      "eligible": 48,
+      "train": 43,
+      "test": 5,
+      "excluded_prompt_flags": 2
+    },
+    "place_container_plate": {
+      "eligible": 50,
+      "train": 45,
+      "test": 5,
+      "excluded_prompt_flags": 0
+    },
+    "place_dual_shoes": {
+      "eligible": 49,
+      "train": 44,
+      "test": 5,
+      "excluded_prompt_flags": 1
+    },
+    "place_empty_cup": {
+      "eligible": 46,
+      "train": 42,
+      "test": 4,
+      "excluded_prompt_flags": 4
+    },
+    "place_fan": {
+      "eligible": 50,
+      "train": 45,
+      "test": 5,
+      "excluded_prompt_flags": 0
+    },
+    "place_mouse_pad": {
+      "eligible": 48,
+      "train": 43,
+      "test": 5,
+      "excluded_prompt_flags": 2
+    },
+    "place_object_basket": {
+      "eligible": 47,
+      "train": 42,
+      "test": 5,
+      "excluded_prompt_flags": 3
+    },
+    "place_object_scale": {
+      "eligible": 49,
+      "train": 44,
+      "test": 5,
+      "excluded_prompt_flags": 1
+    },
+    "place_object_stand": {
+      "eligible": 50,
+      "train": 45,
+      "test": 5,
+      "excluded_prompt_flags": 0
+    },
+    "place_phone_stand": {
+      "eligible": 50,
+      "train": 45,
+      "test": 5,
+      "excluded_prompt_flags": 0
+    },
+    "place_shoe": {
+      "eligible": 50,
+      "train": 45,
+      "test": 5,
+      "excluded_prompt_flags": 0
+    },
+    "press_stapler": {
+      "eligible": 50,
+      "train": 45,
+      "test": 5,
+      "excluded_prompt_flags": 0
+    },
+    "put_bottles_dustbin": {
+      "eligible": 50,
+      "train": 45,
+      "test": 5,
+      "excluded_prompt_flags": 0
+    },
+    "put_object_cabinet": {
+      "eligible": 48,
+      "train": 43,
+      "test": 5,
+      "excluded_prompt_flags": 2
+    },
+    "rotate_qrcode": {
+      "eligible": 50,
+      "train": 45,
+      "test": 5,
+      "excluded_prompt_flags": 0
+    },
+    "scan_object": {
+      "eligible": 50,
+      "train": 45,
+      "test": 5,
+      "excluded_prompt_flags": 0
+    },
+    "shake_bottle": {
+      "eligible": 41,
+      "train": 37,
+      "test": 4,
+      "excluded_prompt_flags": 9
+    },
+    "shake_bottle_horizontally": {
+      "eligible": 47,
+      "train": 42,
+      "test": 5,
+      "excluded_prompt_flags": 3
+    },
+    "stack_blocks_three": {
+      "eligible": 50,
+      "train": 45,
+      "test": 5,
+      "excluded_prompt_flags": 0
+    },
+    "stack_blocks_two": {
+      "eligible": 49,
+      "train": 44,
+      "test": 5,
+      "excluded_prompt_flags": 1
+    },
+    "stack_bowls_three": {
+      "eligible": 36,
+      "train": 33,
+      "test": 3,
+      "excluded_prompt_flags": 14
+    },
+    "stack_bowls_two": {
+      "eligible": 49,
+      "train": 44,
+      "test": 5,
+      "excluded_prompt_flags": 1
+    },
+    "stamp_seal": {
+      "eligible": 50,
+      "train": 45,
+      "test": 5,
+      "excluded_prompt_flags": 0
+    },
+    "turn_switch": {
+      "eligible": 46,
+      "train": 41,
+      "test": 5,
+      "excluded_prompt_flags": 4
+    }
+  },
+  "frames": {
+    "train": {
+      "original": 898590,
+      "deduplicated": 875530
+    },
+    "test": {
+      "original": 98304,
+      "deduplicated": 95776
+    }
+  },
+  "sources": {
+    "paired_all": {
+      "path": "/data2/niurc/vpp2-obj-generation/data/robotwin_observer_ego_obj_full_vpp2/paired_all.jsonl",
+      "sha256": "cfeaa7262ebb2d3d9952dbaead9b240308aaa7edc7034018fecbfc462eba044a"
+    },
+    "paired_no_flags": {
+      "path": "/data2/niurc/vpp2-obj-generation/data/robotwin_observer_ego_obj_full_vpp2/paired_no_flags.jsonl",
+      "sha256": "79db2b154160cd6e807f2f8507e7a6d157c0b0e225a3f18649c2044388a2fbcf"
+    },
+    "paired_needs_review": {
+      "path": "/data2/niurc/vpp2-obj-generation/data/robotwin_observer_ego_obj_full_vpp2/paired_needs_review.jsonl",
+      "sha256": "fb75cd48b80b101efebad576144c8607b2562cc05523408bbd71cd1ada5ffba9"
+    },
+    "dedup_manifest": {
+      "path": "/data2/niurc/vpp2-obj-generation/data/robotwin_observer_ego_dedup_index_v1/manifest.jsonl",
+      "sha256": "343c5e098410076ab263740837e5b749f5560004f843eb562b923e2f4428c07d"
+    }
+  },
+  "builder": {
+    "path": "/data2/niurc/vpp2-obj-generation/scripts/split_obj_video_dataset.py",
+    "sha256": "40a42a962484c0894bdcd459f853bc81661f3e52a5054559005deb45f2a49db2"
+  },
+  "artifacts": {
+    "train.jsonl": {
+      "path": "/data2/niurc/vpp2-obj-generation/data/robotwin_observer_ego_obj_splits_v1/train.jsonl",
+      "sha256": "a1dedb3724db2c4eda84eae3e8dd4eb1c44f10b8eb970ee2f3e9766e0b3cfe67"
+    },
+    "test.jsonl": {
+      "path": "/data2/niurc/vpp2-obj-generation/data/robotwin_observer_ego_obj_splits_v1/test.jsonl",
+      "sha256": "3f539151d265273e99e49038f330459f208c4bbdef3c3a19c5c6a766771b7d5c"
+    },
+    "excluded_prompt_review.jsonl": {
+      "path": "/data2/niurc/vpp2-obj-generation/data/robotwin_observer_ego_obj_splits_v1/excluded_prompt_review.jsonl",
+      "sha256": "0db9a6a18b0f6d50e60431e5215241c403732e11f48e13ecaf1cbc19637d5c95"
+    }
+  },
+  "checks": {
+    "episode_overlap": 0,
+    "flagged_episodes_in_train_or_test": 0,
+    "eligible_episodes_missing": 0,
+    "shared_rgb_video_hashes": 0,
+    "shared_obj_video_hashes": 0,
+    "shared_video_paths": 0,
+    "dedup_indexes_hash_verified": 2395,
+    "every_task_in_both_splits": true,
+    "frozen_episode_order_preserved": true,
+    "prompt_revision_matches": true,
+    "text_embedding_references_complete": true
+  },
+  "usage": {
+    "train": "Only train.jsonl may provide optimization samples or fitted dataset statistics.",
+    "test": "Keep test.jsonl held out from optimization; all windows of each test episode remain test.",
+    "excluded": "Excluded from both splits; original media and prompts are retained.",
+    "sampling": "Sample in deduplicated order, then map through dedup_index_path for both RGB and obj.",
+    "dedup_source_frame_indices": "NPZ source_frame_indices refer to unchanged original MP4 frame order."
+  },
+  "source_media_modified": false,
+  "training_started": false,
+  "prompt_revision": "prompt_obj_chronological_128_v1",
+  "prompt_updated_at": "2026-10-19T01:49:33.978899+00:00",
+  "prompt_source": {
+    "path": "/data2/niurc/vpp2-obj-generation/runs/prompt_obj_chronological_128_v1/exports/paired_training.jsonl",
+    "sha256": "261de11ec6ed1afddffa0e6b07be76789eb18b0fa135b733671203b6072bc0f6"
+  },
+  "previous_revision_backup": "/data2/niurc/vpp2-obj-generation/data/robotwin_observer_ego_obj_splits_v1/revisions/before_chronological_128_20261019",
+  "text_embedding_cache": {
+    "root": "/data2/niurc/vpp2-obj-generation/data/text_embeddings/prompt_obj_chronological_128_v1_20261019",
+    "cache_signature": "3714b3f5a88632c47d6ae85ba935f54472b08579c2d1e4c787b304d19921c632",
+    "status": "complete",
+    "unique_prompts": 1382
+  },
+  "prompt_refresh_builder": {
+    "path": "/data2/niurc/vpp2-obj-generation/scripts/refresh_obj_split_prompts.py",
+    "sha256": "b657908c7b801fdcdc3d055a2f53d2b26bce08c575d5386e53b4baea0f32bdb2"
+  },
+  "reproduction_note": "Original builder reproduces the frozen partition and original prompt snapshot; this refresh preserves that partition and updates text/cache fields."
+}

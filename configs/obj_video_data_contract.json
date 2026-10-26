@@ -1,0 +1,205 @@
+{
+  "status": "first_baseline_code_ready_for_review; CPU checks and one frozen VAE window verified; full DiT GPU execution not yet verified",
+  "condition": {
+    "source_kind": "video",
+    "content": "full-scene RGB",
+    "episode_first_frame_index": 0,
+    "history": "RGB frames at or before the prediction anchor; never future frames",
+    "current_observation": "full-scene RGB when required by the history-conditioned architecture",
+    "root": "/data2/niurc/vpp2-obj-generation/data/robotwin_observer_ego_vpp2"
+  },
+  "target": {
+    "source_kind": "video_object_full",
+    "content": "object RGB on source black background",
+    "root": "/data2/niurc/vpp2-obj-generation/data/robotwin_observer_ego_obj_full_vpp2",
+    "supervision": "First baseline: future obj-video supervision plus RGB condition-prefix auxiliary reconstruction with the upstream prefix loss weight 1.0. Export only future obj predictions."
+  },
+  "geometry": {
+    "view_order": [
+      "observer",
+      "ego"
+    ],
+    "view_size_wh": [
+      224,
+      224
+    ],
+    "video_size_wh": [
+      448,
+      224
+    ],
+    "crop": false,
+    "flip": false
+  },
+  "pairing": {
+    "key": [
+      "task",
+      "episode",
+      "frame_index"
+    ],
+    "simulation_timestamps": "verified identical RGB/obj and observer/ego",
+    "encoded_cadence": "preserved, no resampling during conversion"
+  },
+  "manifests": {
+    "all": "/data2/niurc/vpp2-obj-generation/data/robotwin_observer_ego_obj_full_vpp2/paired_all.jsonl",
+    "without_unresolved_prompt_flags": "/data2/niurc/vpp2-obj-generation/runs/prompt_obj_chronological_128_v1/exports/paired_training.jsonl",
+    "needs_prompt_review": "/data2/niurc/vpp2-obj-generation/data/robotwin_observer_ego_obj_full_vpp2/paired_needs_review.jsonl",
+    "train": "/data2/niurc/vpp2-obj-generation/data/robotwin_observer_ego_obj_splits_v1/train.jsonl",
+    "test": "/data2/niurc/vpp2-obj-generation/data/robotwin_observer_ego_obj_splits_v1/test.jsonl",
+    "excluded_from_train_and_test": "/data2/niurc/vpp2-obj-generation/data/robotwin_observer_ego_obj_splits_v1/excluded_prompt_review.jsonl",
+    "previous_without_unresolved_prompt_flags": "/data2/niurc/vpp2-obj-generation/data/robotwin_observer_ego_obj_full_vpp2/paired_no_flags.jsonl"
+  },
+  "dataset_split": {
+    "status": "current_prompts_and_embeddings_ready; paired training loader connected; frozen partition preserved",
+    "unit": [
+      "task",
+      "episode"
+    ],
+    "stratify_by": "task",
+    "seed": 42,
+    "requested_train_fraction": 0.9,
+    "requested_test_fraction": 0.1,
+    "train_episodes": 2155,
+    "test_episodes": 240,
+    "excluded_prompt_review_episodes": 105,
+    "all_tasks_in_both_splits": true,
+    "evaluation_scope": "Held-out episodes of the same 50 tasks.",
+    "summary_path": "/data2/niurc/vpp2-obj-generation/data/robotwin_observer_ego_obj_splits_v1/summary.json",
+    "training_rule": "Use manifests.train for optimization and fitted dataset statistics; keep manifests.test held out. All frames/windows/cameras of an episode inherit its split. Do not train from the unsplit all/without_unresolved_prompt_flags manifests.",
+    "dedup_rule": "Each train/test row supplies dedup_index_path and its SHA256; sample in deduplicated_frame_order, then decode the shared source_frame_indices from the original RGB and object MP4s."
+  },
+  "training_window": {
+    "index_space": "deduplicated_frame_order",
+    "dedup_policy": "equal_timestamp_keep_first_v1",
+    "dedup_root": "/data2/niurc/vpp2-obj-generation/data/robotwin_observer_ego_dedup_index_v1",
+    "history_stride": 30,
+    "history_length": 7,
+    "past_history_offsets": [
+      -210,
+      -180,
+      -150,
+      -120,
+      -90,
+      -60,
+      -30
+    ],
+    "include_episode_first_frame": true,
+    "include_current_frame": true,
+    "condition_rgb_frames": 9,
+    "upstream_condition_history_frames": 8,
+    "upstream_condition_history_frames_note": "The upstream field includes the current frame: seven past frames plus current. The episode first frame is added separately.",
+    "condition_order": [
+      "episode_first",
+      "seven_past_frames_oldest_first",
+      "current"
+    ],
+    "prediction_stride": 5,
+    "prediction_length": 16,
+    "prediction_offsets": [
+      5,
+      10,
+      15,
+      20,
+      25,
+      30,
+      35,
+      40,
+      45,
+      50,
+      55,
+      60,
+      65,
+      70,
+      75,
+      80
+    ],
+    "random_stride_or_jitter": false,
+    "uniform_simulation_cadence": false,
+    "boundary_policy": "Clamp negative history positions to episode frame 0 and mark them as padding; episode-first/current remain valid. Training anchors require s+80<N, so all 16 future frames are real and no future padding is used.",
+    "note": "Implemented window: I_0 plus I_[s-210:s:30] (including I_s), followed by O_[s+5:s+80:5]. Map all sampled deduplicated positions through the same source_frame_indices before decoding RGB/obj. Seven past frames plus current span 210 retained-frame intervals; this is not exactly seven simulation seconds."
+  },
+  "first_baseline": {
+    "status": "implemented_for_review; training_not_started",
+    "training_sequence": "9 full-scene RGB condition-prefix frames followed by 16 object-only future frames",
+    "condition_latent_loss_weight": 1.0,
+    "loss_normalization": "Retain the upstream weighted mean over valid prefix and future latent positions, with the existing padding mask.",
+    "inference_prefix_policy": "Retain upstream joint denoising of all seven latent positions; do not add prefix clamping in this baseline.",
+    "decoded_video_frames": 25,
+    "export_frame_slice_start_inclusive": 9,
+    "export_frame_slice_end_exclusive": 25,
+    "loss_metrics_to_report": [
+      "loss_video",
+      "loss_rgb_prefix",
+      "loss_obj_future"
+    ],
+    "code_root": "/data2/niurc/vpp2-obj-generation/src/vpp2_obj",
+    "config_path": "/data2/niurc/vpp2-obj-generation/configs/obj_video_baseline_v1.yaml",
+    "review_guide": "/data2/niurc/vpp2-obj-generation/docs/obj_video_baseline_v1.md"
+  },
+  "implementation_checks_required": [
+    "Load the frozen train/test split manifests and preserve episode isolation when sampling windows.",
+    "Read RGB conditions and obj targets from separate paired paths.",
+    "Do not default to target obj first frame as the RGB condition.",
+    "Match history/current-observation latent placement at training and inference.",
+    "Keep condition_latent_loss_weight=1.0 for the first baseline; log RGB-prefix and obj-future losses separately without changing the upstream total-loss normalization.",
+    "Retain upstream denoising in the first baseline; decode the full 25-frame sequence and export only frames [9:25] as obj predictions.",
+    "Ensure VAE temporal indexing and padding masks align with the future obj segment; use a tiny train/infer batch before full training."
+  ],
+  "planned_training_gpu_ids": [
+    4,
+    5,
+    6,
+    7
+  ],
+  "training_started": false,
+  "current_training_manifest": "/data2/niurc/vpp2-obj-generation/data/robotwin_observer_ego_obj_splits_v1/train.jsonl",
+  "prompt_revision": "prompt_obj_chronological_128_v1",
+  "prompt_contract_path": "/data2/niurc/vpp2-obj-generation/runs/prompt_obj_chronological_128_v1/prompt_contract.json",
+  "tokenizer_model_id": "/data2/niurc/vpp2-obj-generation/runs/prompt_obj_chronological_128_v1/tokenizer",
+  "text_limits": {
+    "context_len": 128,
+    "tokenizer_max_len": 128,
+    "text_len": 128,
+    "actual_max_including_special_tokens": 120
+  },
+  "reuse_previous_text_embeddings": false,
+  "current_test_manifest": "/data2/niurc/vpp2-obj-generation/data/robotwin_observer_ego_obj_splits_v1/test.jsonl",
+  "prompt_source_manifest": "/data2/niurc/vpp2-obj-generation/runs/prompt_obj_chronological_128_v1/exports/paired_training.jsonl",
+  "text_embeddings": {
+    "status": "complete",
+    "root": "/data2/niurc/vpp2-obj-generation/data/text_embeddings/prompt_obj_chronological_128_v1_20261019",
+    "index": "/data2/niurc/vpp2-obj-generation/data/text_embeddings/prompt_obj_chronological_128_v1_20261019/index.jsonl",
+    "cache_signature": "3714b3f5a88632c47d6ae85ba935f54472b08579c2d1e4c787b304d19921c632",
+    "context_length": 128,
+    "context_width": 4096,
+    "context_dtype": "bfloat16",
+    "mask_dtype": "bool",
+    "prompt_revision": "prompt_obj_chronological_128_v1",
+    "unique_prompts": 1382,
+    "encoding": "Frozen pretrained UMT5 encoder, eval/inference mode; real padding mask preserved."
+  },
+  "implementation_validation": {
+    "cpu_real_windows_checked": 3,
+    "cpu_window_report": "/data2/niurc/vpp2-obj-generation/runs/obj_video_baseline_v1_review/verification.json",
+    "frozen_vae_windows_checked": 1,
+    "vae_report": "/data2/niurc/vpp2-obj-generation/runs/obj_video_baseline_v1_vae_review/window_000/vae_check.json",
+    "full_latent_shape": [
+      1,
+      16,
+      7,
+      28,
+      56
+    ],
+    "condition_latent_shape": [
+      1,
+      16,
+      3,
+      28,
+      56
+    ],
+    "prefix_latent_max_abs_difference": 0.0,
+    "full_dit_gpu_training_verified": false,
+    "full_dit_gpu_inference_verified": false,
+    "distributed_training_verified": false,
+    "checkpoint_resume_verified": false
+  }
+}

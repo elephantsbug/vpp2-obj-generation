@@ -1,0 +1,14 @@
+[
+  {"task": "beat_block_hammer", "episode": "episode_0000000"},
+  {"task": "beat_block_hammer", "episode": "episode_0000001"},
+  {"task": "place_mouse_pad", "episode": "episode_0000000"},
+  {"task": "place_fan", "episode": "episode_0000000"},
+  {"task": "grab_roller", "episode": "episode_0000000"},
+  {"task": "pick_dual_bottles", "episode": "episode_0000000"},
+  {"task": "handover_block", "episode": "episode_0000000"},
+  {"task": "handover_mic", "episode": "episode_0000000"},
+  {"task": "scan_object", "episode": "episode_0000002"},
+  {"task": "place_a2b_right", "episode": "episode_0000002"},
+  {"task": "place_dual_shoes", "episode": "episode_0000000"},
+  {"task": "rotate_qrcode", "episode": "episode_0000000"}
+]
