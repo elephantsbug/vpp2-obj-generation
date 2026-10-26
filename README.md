@@ -1,5 +1,9 @@
 # vpp2-obj-generation
 
+First stage trained on vpp2 stage 2 checkpoint with robotwin_clean
+
+Backup and recovery instructions for the completed step 10000 model: [recovery guide](backups/step_010000_20261026/README.md). Historical `runs/` and `data/` links below refer to local experiment artifacts; their complete contents are not included in this code repository.
+
 ## Current training prompts: chronological object-video instructions, 128-token context
 
 The current prompt revision is [prompt_obj_chronological_128_v1](runs/prompt_obj_chronological_128_v1/exports/): **2395 episodes across 50 tasks**, with the previous 105 flagged episodes excluded. A fixed short prefix specifies full-scene RGB first-frame/history conditions and future object-only video on black, observer-left / ego-right. The body follows each episode's reviewed action order, retains simultaneous pickups and handovers, and omits unrelated static-arm clauses. Physical arm identities are unchanged: observer image-left is the actual right arm.
